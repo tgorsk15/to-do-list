@@ -1,4 +1,7 @@
 import './to-do.css';
+import { toDoStructure } from './structure';
+
+toDoStructure();
 
 // objectCreator.js: fiile that contains the logic that creates
 // a new task or project
