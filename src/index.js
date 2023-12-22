@@ -1,6 +1,7 @@
 import './to-do.css';
 import { toDoStructure } from './structure';
 import { createTask } from './objectCreator';
+import { Task } from './object.js';
 
 
 // reference for objectCreator.js
@@ -24,5 +25,8 @@ toDoStructure();
 
 createTask(createTaskButton);
 
+const newT = new Task('joe', 'test', '45', 'important', 'yes');
+
+console.log(newT);
 
 console.log('test');
