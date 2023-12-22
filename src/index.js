@@ -4,7 +4,8 @@ import { createTask } from './objectCreator';
 
 
 // reference for objectCreator.js
-// const createTaskButton = document.querySelector('.create-task-button');
+// goal is to keep the DOM manipulation links in this file
+const createTaskButton = document.querySelector('.create-task-button');
 
 
 toDoStructure();
@@ -21,7 +22,7 @@ toDoStructure();
 // listModification.js: handles the logic to display changes
 // on broswer when projects/tasks are added/deleted
 
-createTask();
+createTask(createTaskButton);
 
 
 console.log('test');

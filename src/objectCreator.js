@@ -1,9 +1,9 @@
 
 
-export function createTask() {
-    const createTaskButton = document.querySelector('.create-task-button');
+export function createTask(taskButton) {
+    
 
-    createTaskButton.addEventListener('click', () => {
+    taskButton.addEventListener('click', () => {
         console.log('test 2');
     })
 }
