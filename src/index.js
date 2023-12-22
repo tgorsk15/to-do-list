@@ -1,5 +1,11 @@
 import './to-do.css';
 import { toDoStructure } from './structure';
+import { createTask } from './objectCreator';
+
+
+// reference for objectCreator.js
+// const createTaskButton = document.querySelector('.create-task-button');
+
 
 toDoStructure();
 
@@ -15,7 +21,7 @@ toDoStructure();
 // listModification.js: handles the logic to display changes
 // on broswer when projects/tasks are added/deleted
 
-
+createTask();
 
 
 console.log('test');

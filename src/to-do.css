@@ -1,3 +1,8 @@
 html {
     background-color: red;
 }
+
+.create-task-button {
+    height: 40px;
+    width: 100px;
+}
