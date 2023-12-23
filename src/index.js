@@ -29,9 +29,9 @@ toDoStructure();
 
 createTask(createTaskButton);
 
-const newT = new Task('joe', 'test', '45', 'important', 'yes');
+// const newT = new Task('joe', 'test', '45', 'important', 'yes');
 
-console.log(newT);
+// console.log(newT);
 
 console.log('test');
 
