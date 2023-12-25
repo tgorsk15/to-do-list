@@ -1,5 +1,6 @@
 import './to-do.css';
-import { toDoStructure } from './structure';
+// import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
+// import { toDoStructure } from './structure';
 import { createTask } from './objectCreator';
 import { Task } from './object.js';
 import { linkForm } from './userform';
@@ -10,7 +11,8 @@ import { linkForm } from './userform';
 const createTaskButton = document.querySelector('.create-task-button');
 
 
-toDoStructure();
+// toDoStructure();
+// console.log(taskBreakContainer);
 
 // objectCreator.js: fiile that contains the logic that creates
 // a new task or project
@@ -27,11 +29,11 @@ toDoStructure();
 // listModification.js: handles the logic to display changes
 // on broswer when projects/tasks are added/deleted
 
-createTask(createTaskButton);
 
-// const newT = new Task('joe', 'test', '45', 'important', 'yes');
 
-// console.log(newT);
+// createTask(createTaskButton);
+
+
 
 console.log('test');
 

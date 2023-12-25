@@ -1,5 +1,8 @@
-import { Task  } from "./object";
-import { linkForm } from "./userform";
+import { Task  } from "./object.js";
+import { linkForm } from "./userform.js";
+// import { contentContainer, projectContainer, taskBreakContainer, toDoStructure } from "./structure";
+import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
+
 
 export function createTask(title, descript, due, importance, checklist) {
     // this should take the user inputs from the <form> and fill them 
@@ -12,14 +15,23 @@ export function createTask(title, descript, due, importance, checklist) {
 
     const task = new Task(title, descript, due, importance, checklist);
 
+    console.log(task);
 
     console.log(title)
-    // console.log(task[title]);
+    createTaskArticle(task)
 
 
     // const testTitle = title;
     // console.log(testTitle);
     
     console.log(Task);
+    console.log(taskBreakContainer);
 
+}
+
+
+function createTaskArticle(task) {
+    const taskArticle = document.createElement('div');
+    taskArticle.classList.add('task-article');
+    taskBreakContainer.appendChild(taskArticle);
 }
