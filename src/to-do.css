@@ -40,6 +40,22 @@ body {
 
 .task-article {
     display: grid;
-    
+    grid-template-columns: 4fr 1fr;
+    height: 20vh;
+    width: 100vh;
+    padding: 5px 20px;
+    background-color: lightgreen;
+}
+
+.task-space1 {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.task-space2 {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
 }
 

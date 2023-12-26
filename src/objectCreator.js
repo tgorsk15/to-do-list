@@ -31,7 +31,31 @@ export function createTask(title, descript, due, importance, checklist) {
 
 
 function createTaskArticle(task) {
+// each article will have a title and a description on the left hand
+// side. The rught side will contain importance, due date, and a 
+// delete button
+
     const taskArticle = document.createElement('div');
-    taskArticle.classList.add('task-article');
-    taskBreakContainer.appendChild(taskArticle);
+    articleFactory.addToArticle(taskArticle, 'task-article', taskBreakContainer);
+
+    // create two inner div containers:
+    const taskSpace1 = document.createElement('div');
+    taskSpace1.classList.add('task-space1');
+    taskArticle.appendChild(taskSpace1);
+
+    const taskSpace2 = document.createElement('div');
+    taskSpace2.classList.add('task-space2');
+    taskArticle.appendChild(taskSpace2);
 }
+
+const articleFactory = (function () {
+
+    function addToArticle(elementName, className, fatherElement ) {
+            elementName.classList.add(className);
+            fatherElement.appendChild(elementName);
+    
+            return elementName;
+        };
+    return {addToArticle};
+
+})();
