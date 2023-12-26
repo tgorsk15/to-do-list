@@ -1,7 +1,7 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
 // import { contentContainer, projectContainer, taskBreakContainer, toDoStructure } from "./structure";
-import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
+import { contentContainer, projectContainer, taskBreakContainer, deleteTaskButton } from './structure.js';
 
 
 export function createTask(title, descript, due, importance, checklist) {
@@ -20,9 +20,6 @@ export function createTask(title, descript, due, importance, checklist) {
     console.log(title)
     createTaskArticle(task)
 
-
-    // const testTitle = title;
-    // console.log(testTitle);
     
     console.log(Task);
     console.log(taskBreakContainer);
@@ -58,6 +55,20 @@ function createTaskArticle(task) {
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
     taskDescription2.textContent = task.description;
+
+
+    // fill taskSpace2:
+    const deleteTaskButton = document.createElement('button');
+    articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2);
+    deleteTaskButton.textContent = 'X';
+
+    const priority = document.createElement('div');
+    articleFactory.addToArticle(priority,'importance2', taskSpace2);
+    priority.textContent = task.importance;
+
+    const dueDate2 = document.createElement('div');
+    articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2);
+    dueDate2.textContent = `Due: ${task.dueDate}`;
 }
 
 
