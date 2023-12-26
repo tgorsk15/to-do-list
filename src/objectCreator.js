@@ -1,5 +1,5 @@
 import { Task  } from "./object.js";
-import { linkForm } from "./userform.js";
+// import { linkForm } from "./userform.js";
 // import { contentContainer, projectContainer, taskBreakContainer, toDoStructure } from "./structure";
 import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
 
@@ -27,26 +27,40 @@ export function createTask(title, descript, due, importance, checklist) {
     console.log(Task);
     console.log(taskBreakContainer);
 
+    return {task}
+
 }
 
 
 function createTaskArticle(task) {
 // each article will have a title and a description on the left hand
-// side. The rught side will contain importance, due date, and a 
-// delete button
+// side. The rught side will contain importance, due date, a delete
+// button, and an arrow (bottom right) to extend task article to show
+// a checklist or more description
+    console.log(task.name)
 
     const taskArticle = document.createElement('div');
     articleFactory.addToArticle(taskArticle, 'task-article', taskBreakContainer);
 
     // create two inner div containers:
     const taskSpace1 = document.createElement('div');
-    taskSpace1.classList.add('task-space1');
-    taskArticle.appendChild(taskSpace1);
+    articleFactory.addToArticle(taskSpace1, 'task-space1', taskArticle);
 
     const taskSpace2 = document.createElement('div');
-    taskSpace2.classList.add('task-space2');
-    taskArticle.appendChild(taskSpace2);
+    articleFactory.addToArticle(taskSpace2, 'task-space2', taskArticle);
+
+
+    // fill taskSpace1:
+    const taskTitle2 = document.createElement('h1');
+    articleFactory.addToArticle(taskTitle2, 'task-title2', taskSpace1);
+    taskTitle2.textContent = task.name;
+
+    const taskDescription2 = document.createElement('div')
+    articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
+    taskDescription2.textContent = task.description;
 }
+
+
 
 const articleFactory = (function () {
 
