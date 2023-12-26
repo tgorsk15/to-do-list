@@ -69,6 +69,12 @@ function createTaskArticle(task) {
     const dueDate2 = document.createElement('div');
     articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2);
     dueDate2.textContent = `Due: ${task.dueDate}`;
+
+    // drop down function
+    const dropDownTask = document.createElement('button');
+    articleFactory.addToArticle(dropDownTask, 'drop-down-task', taskSpace2)
+    dropDownTask.textContent = '^'
+    taskDropLogic(dropDownTask)
 }
 
 
@@ -84,3 +90,11 @@ const articleFactory = (function () {
     return {addToArticle};
 
 })();
+
+
+function taskDropLogic(dropButton) {
+    dropButton.addEventListener('click', () => {
+        console.log('drop down work');
+    })
+
+}

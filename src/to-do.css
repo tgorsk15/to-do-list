@@ -82,3 +82,12 @@ body {
 .importance2 {
     justify-self: end;
 }
+
+.drop-down-task {
+    transform: rotate(180deg);
+    background-color: white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    justify-self: end;
+}
