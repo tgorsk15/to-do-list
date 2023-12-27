@@ -47,6 +47,11 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(taskSpace2, 'task-space2', taskArticle);
 
 
+     // initially invisible content:
+     const taskDropContainer = document.createElement('div')
+     articleFactory.addToArticle(taskDropContainer, 'taskDrop-container', taskArticle);
+
+
     // fill taskSpace1:
     const taskTitle2 = document.createElement('h1');
     articleFactory.addToArticle(taskTitle2, 'task-title2', taskSpace1);
@@ -62,19 +67,21 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2);
     deleteTaskButton.textContent = 'X';
 
-    const priority = document.createElement('div');
-    articleFactory.addToArticle(priority,'importance2', taskSpace2);
-    priority.textContent = task.importance;
-
     const dueDate2 = document.createElement('div');
     articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2);
     dueDate2.textContent = `Due: ${task.dueDate}`;
+
+
+    // fill hidden dropdown
+    const priority = document.createElement('div');
+    articleFactory.addToArticle(priority,'importance2', taskDropContainer);
+    priority.textContent = task.importance;
 
     // drop down function
     const dropDownTask = document.createElement('button');
     articleFactory.addToArticle(dropDownTask, 'drop-down-task', taskSpace2)
     dropDownTask.textContent = '^'
-    taskDropLogic(dropDownTask)
+    taskDropLogic(dropDownTask, taskDropContainer)
 }
 
 
@@ -92,9 +99,17 @@ const articleFactory = (function () {
 })();
 
 
-function taskDropLogic(dropButton) {
+function taskDropLogic(dropButton, dropContainer) {
     dropButton.addEventListener('click', () => {
         console.log('drop down work');
+
+        if (dropContainer.classList.contains('taskDrop-container')) {
+            dropContainer.classList.remove('taskDrop-container');
+            dropContainer.classList.add('taskDrop-container-active');
+        } else if (dropContainer.classList.contains('taskDrop-container-active')) {
+            dropContainer.classList.remove('taskDrop-container-active');
+            dropContainer.classList.add('taskDrop-container');
+        }
     })
 
 }
