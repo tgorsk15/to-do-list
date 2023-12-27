@@ -15,7 +15,7 @@ const createTaskButton = document.querySelector('.create-task-button');
 // console.log(taskBreakContainer);
 
 // objectCreator.js: fiile that contains the logic that creates
-// a new task or project
+// new task article cards under each project
 
 // object.js contains the Task class is used to generate new instances
 // when a new task is generated

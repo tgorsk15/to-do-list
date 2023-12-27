@@ -56,10 +56,12 @@ function createTaskArticle(task) {
     const taskTitle2 = document.createElement('h1');
     articleFactory.addToArticle(taskTitle2, 'task-title2', taskSpace1);
     taskTitle2.textContent = task.name;
+    taskTitle2.contentEditable = "true";
 
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
     taskDescription2.textContent = task.description;
+    taskDescription2.contentEditable = "true";
 
 
     // fill taskSpace2:
@@ -69,6 +71,7 @@ function createTaskArticle(task) {
     const dueDate2 = document.createElement('div');
     articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2First);
     dueDate2.textContent = `Due: ${task.dueDate}`;
+    // figure out how to edit the date here
 
     const deleteTaskButton = document.createElement('button');
     articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2First);
@@ -79,13 +82,14 @@ function createTaskArticle(task) {
     // fill hidden dropdown
     const priority = document.createElement('div');
     articleFactory.addToArticle(priority,'importance2', taskDropContainer);
-    priority.textContent = task.importance;
+    // priority.textContent = task.importance;
+    createPriorityBar(task.importance);
 
     // drop down function
     const dropDownTask = document.createElement('button');
     articleFactory.addToArticle(dropDownTask, 'drop-down-task', taskSpace2)
     dropDownTask.textContent = '^'
-    taskDropLogic(dropDownTask, taskDropContainer)
+    taskDropLogic(dropDownTask, taskDropContainer, task.name)
 }
 
 
@@ -103,9 +107,10 @@ const articleFactory = (function () {
 })();
 
 
-function taskDropLogic(dropButton, dropContainer) {
+function taskDropLogic(dropButton, dropContainer, titleTest) {
     dropButton.addEventListener('click', () => {
         console.log('drop down work');
+        console.log(titleTest);
 
         if (dropContainer.classList.contains('taskDrop-container')) {
             dropContainer.classList.remove('taskDrop-container');
@@ -116,4 +121,9 @@ function taskDropLogic(dropButton, dropContainer) {
         }
     })
 
+}
+
+
+function createPriorityBar(priorityLevel) {
+    
 }
