@@ -82,7 +82,7 @@ function createTaskArticle(task) {
     // fill hidden dropdown
     const priorityBar = document.createElement('div');
     articleFactory.addToArticle(priorityBar,'priority-bar', taskDropContainer);
-    createPriorityBar(task.importance, priorityBar);
+    createPriorityBar(task.importance, priorityBar, taskDropContainer);
 
     // drop down function
     const dropDownTask = document.createElement('button');
@@ -123,12 +123,12 @@ function taskDropLogic(dropButton, dropContainer, titleTest) {
 }
 
 
-function createPriorityBar(priorityLevel, priorityBar) {
+function createPriorityBar(priorityLevel, priorityBar, taskDropContainer) {
     const prioritySelect = document.getElementById('importance');
     console.log(prioritySelect);
 
     const priorityTitle = document.createElement('label')
-    articleFactory.addToArticle(priorityTitle,'priority-title', priorityBar);
+    articleFactory.addToArticle(priorityTitle,'priority-title', taskDropContainer);
     priorityTitle.textContent = 'Priority Level:'
 
 
@@ -146,7 +146,7 @@ function createPriorityBar(priorityLevel, priorityBar) {
         articleFactory.addToArticle(priorityButtonLabel,'priority-button-label', priorityBar);
 
         if (priorityOption.value === priorityLevel) {
-            priorityButton.selected = true;
+            priorityButton.checked = true;
             console.log(priorityButton);
         }
 
