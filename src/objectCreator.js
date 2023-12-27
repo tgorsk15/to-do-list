@@ -80,10 +80,9 @@ function createTaskArticle(task) {
 
 
     // fill hidden dropdown
-    const priority = document.createElement('div');
-    articleFactory.addToArticle(priority,'importance2', taskDropContainer);
-    // priority.textContent = task.importance;
-    createPriorityBar(task.importance);
+    const priorityBar = document.createElement('div');
+    articleFactory.addToArticle(priorityBar,'priority-bar', taskDropContainer);
+    createPriorityBar(task.importance, priorityBar);
 
     // drop down function
     const dropDownTask = document.createElement('button');
@@ -124,6 +123,36 @@ function taskDropLogic(dropButton, dropContainer, titleTest) {
 }
 
 
-function createPriorityBar(priorityLevel) {
-    
+function createPriorityBar(priorityLevel, priorityBar) {
+    const prioritySelect = document.getElementById('importance');
+    console.log(prioritySelect);
+
+    const priorityTitle = document.createElement('label')
+    articleFactory.addToArticle(priorityTitle,'priority-title', priorityBar);
+    priorityTitle.textContent = 'Priority Level:'
+
+
+    for (let i = 0; i < 5; i++) {
+        const priorityOption = prioritySelect.options[i];
+        // console.log(priorityOption);
+        //create button for each option
+        const priorityButton = document.createElement('input');
+        priorityButton.type = 'radio';
+        priorityButton.name = priorityLevel;
+
+        // create label for each option
+        const priorityButtonLabel = document.createElement('label');
+        priorityButtonLabel.textContent = prioritySelect.options[i].value;
+        articleFactory.addToArticle(priorityButtonLabel,'priority-button-label', priorityBar);
+
+        if (priorityOption.value === priorityLevel) {
+            priorityButton.selected = true;
+            console.log(priorityButton);
+        }
+
+        articleFactory.addToArticle(priorityButton,'priority-button', priorityBar);
+    }
+
+
+
 }
