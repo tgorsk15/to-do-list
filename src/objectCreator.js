@@ -1,7 +1,7 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
-// import { contentContainer, projectContainer, taskBreakContainer, toDoStructure } from "./structure";
-import { contentContainer, projectContainer, taskBreakContainer, deleteTaskButton } from './structure.js';
+import { createPriorityBar, taskDropLogic } from "./taskModification.js";
+import { taskBreakContainer, deleteTaskButton } from './structure.js';
 
 
 export function createTask(title, descript, due, importance, checklist) {
@@ -93,7 +93,7 @@ function createTaskArticle(task) {
 
 
 
-const articleFactory = (function () {
+export const articleFactory = (function () {
 
     function addToArticle(elementName, className, fatherElement ) {
             elementName.classList.add(className);
@@ -106,53 +106,53 @@ const articleFactory = (function () {
 })();
 
 
-function taskDropLogic(dropButton, dropContainer, titleTest) {
-    dropButton.addEventListener('click', () => {
-        console.log('drop down work');
-        console.log(titleTest);
+// function taskDropLogic(dropButton, dropContainer, titleTest) {
+//     dropButton.addEventListener('click', () => {
+//         console.log('drop down work');
+//         console.log(titleTest);
 
-        if (dropContainer.classList.contains('taskDrop-container')) {
-            dropContainer.classList.remove('taskDrop-container');
-            dropContainer.classList.add('taskDrop-container-active');
-        } else if (dropContainer.classList.contains('taskDrop-container-active')) {
-            dropContainer.classList.remove('taskDrop-container-active');
-            dropContainer.classList.add('taskDrop-container');
-        }
-    })
+//         if (dropContainer.classList.contains('taskDrop-container')) {
+//             dropContainer.classList.remove('taskDrop-container');
+//             dropContainer.classList.add('taskDrop-container-active');
+//         } else if (dropContainer.classList.contains('taskDrop-container-active')) {
+//             dropContainer.classList.remove('taskDrop-container-active');
+//             dropContainer.classList.add('taskDrop-container');
+//         }
+//     })
 
-}
-
-
-function createPriorityBar(priorityLevel, priorityBar, taskDropContainer) {
-    const prioritySelect = document.getElementById('importance');
-    console.log(prioritySelect);
-
-    const priorityTitle = document.createElement('label')
-    articleFactory.addToArticle(priorityTitle,'priority-title', taskDropContainer);
-    priorityTitle.textContent = 'Priority Level:'
+// }
 
 
-    for (let i = 0; i < 5; i++) {
-        const priorityOption = prioritySelect.options[i];
-        // console.log(priorityOption);
-        //create button for each option
-        const priorityButton = document.createElement('input');
-        priorityButton.type = 'radio';
-        priorityButton.name = priorityLevel;
+// function createPriorityBar(priorityLevel, priorityBar, taskDropContainer) {
+//     const prioritySelect = document.getElementById('importance');
+//     console.log(prioritySelect);
 
-        // create label for each option
-        const priorityButtonLabel = document.createElement('label');
-        priorityButtonLabel.textContent = prioritySelect.options[i].value;
-        articleFactory.addToArticle(priorityButtonLabel,'priority-button-label', priorityBar);
-
-        if (priorityOption.value === priorityLevel) {
-            priorityButton.checked = true;
-            console.log(priorityButton);
-        }
-
-        articleFactory.addToArticle(priorityButton,'priority-button', priorityBar);
-    }
+//     const priorityTitle = document.createElement('label')
+//     articleFactory.addToArticle(priorityTitle,'priority-title', taskDropContainer);
+//     priorityTitle.textContent = 'Priority Level:'
 
 
+//     for (let i = 0; i < 5; i++) {
+//         const priorityOption = prioritySelect.options[i];
+//         // console.log(priorityOption);
+//         //create button for each option
+//         const priorityButton = document.createElement('input');
+//         priorityButton.type = 'radio';
+//         priorityButton.name = priorityLevel;
 
-}
+//         // create label for each option
+//         const priorityButtonLabel = document.createElement('label');
+//         priorityButtonLabel.textContent = prioritySelect.options[i].value;
+//         articleFactory.addToArticle(priorityButtonLabel,'priority-button-label', priorityBar);
+
+//         if (priorityOption.value === priorityLevel) {
+//             priorityButton.checked = true;
+//             console.log(priorityButton);
+//         }
+
+//         articleFactory.addToArticle(priorityButton,'priority-button', priorityBar);
+//     }
+
+
+
+// }

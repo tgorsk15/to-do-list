@@ -22,12 +22,6 @@ export const taskBreakContainer = document.querySelector('.task-breakout-contain
 //     return deleteTaskButton
 // }
 
-// function testDelete() {
-//     deleteTask();
-//     console.log(deleteTaskButton);
-// }
-
-// testDelete();
 
 
 
