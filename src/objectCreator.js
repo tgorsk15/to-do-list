@@ -63,13 +63,17 @@ function createTaskArticle(task) {
 
 
     // fill taskSpace2:
-    const deleteTaskButton = document.createElement('button');
-    articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2);
-    deleteTaskButton.textContent = 'X';
+    const taskSpace2First = document.createElement('div');
+    articleFactory.addToArticle(taskSpace2First,'task-space2-row1', taskSpace2);
 
     const dueDate2 = document.createElement('div');
-    articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2);
+    articleFactory.addToArticle(dueDate2,'due-date2', taskSpace2First);
     dueDate2.textContent = `Due: ${task.dueDate}`;
+
+    const deleteTaskButton = document.createElement('button');
+    articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2First);
+    deleteTaskButton.textContent = 'X';
+
 
 
     // fill hidden dropdown
