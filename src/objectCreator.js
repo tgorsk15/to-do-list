@@ -1,7 +1,7 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic } from "./taskModification.js";
-import { taskBreakContainer, deleteTaskButton } from './structure.js';
+import { taskBreakContainer} from './structure.js';
 
 
 export function createTask(title, descript, due, importance, checklist) {
@@ -47,9 +47,11 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(taskSpace2, 'task-space2', taskArticle);
 
 
-     // initially invisible content:
+
+     // initially invisible container:
      const taskDropContainer = document.createElement('div')
      articleFactory.addToArticle(taskDropContainer, 'taskDrop-container', taskArticle);
+
 
 
     // fill taskSpace1:
@@ -62,6 +64,7 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
     taskDescription2.textContent = task.description;
     taskDescription2.contentEditable = "true";
+
 
 
     // fill taskSpace2:
@@ -84,7 +87,11 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(priorityBar,'priority-bar', taskDropContainer);
     createPriorityBar(task.importance, priorityBar, taskDropContainer);
 
-    // drop down function
+    const completeTaskButton = document.createElement('button');
+    articleFactory.addToArticle(completeTaskButton,'complete-task-button', taskDropContainer);
+    completeTaskButton.textContent = 'Complete';
+
+    // drop down button and function
     const dropDownTask = document.createElement('button');
     articleFactory.addToArticle(dropDownTask, 'drop-down-task', taskSpace2)
     dropDownTask.textContent = '^'
@@ -106,53 +113,3 @@ export const articleFactory = (function () {
 })();
 
 
-// function taskDropLogic(dropButton, dropContainer, titleTest) {
-//     dropButton.addEventListener('click', () => {
-//         console.log('drop down work');
-//         console.log(titleTest);
-
-//         if (dropContainer.classList.contains('taskDrop-container')) {
-//             dropContainer.classList.remove('taskDrop-container');
-//             dropContainer.classList.add('taskDrop-container-active');
-//         } else if (dropContainer.classList.contains('taskDrop-container-active')) {
-//             dropContainer.classList.remove('taskDrop-container-active');
-//             dropContainer.classList.add('taskDrop-container');
-//         }
-//     })
-
-// }
-
-
-// function createPriorityBar(priorityLevel, priorityBar, taskDropContainer) {
-//     const prioritySelect = document.getElementById('importance');
-//     console.log(prioritySelect);
-
-//     const priorityTitle = document.createElement('label')
-//     articleFactory.addToArticle(priorityTitle,'priority-title', taskDropContainer);
-//     priorityTitle.textContent = 'Priority Level:'
-
-
-//     for (let i = 0; i < 5; i++) {
-//         const priorityOption = prioritySelect.options[i];
-//         // console.log(priorityOption);
-//         //create button for each option
-//         const priorityButton = document.createElement('input');
-//         priorityButton.type = 'radio';
-//         priorityButton.name = priorityLevel;
-
-//         // create label for each option
-//         const priorityButtonLabel = document.createElement('label');
-//         priorityButtonLabel.textContent = prioritySelect.options[i].value;
-//         articleFactory.addToArticle(priorityButtonLabel,'priority-button-label', priorityBar);
-
-//         if (priorityOption.value === priorityLevel) {
-//             priorityButton.checked = true;
-//             console.log(priorityButton);
-//         }
-
-//         articleFactory.addToArticle(priorityButton,'priority-button', priorityBar);
-//     }
-
-
-
-// }
