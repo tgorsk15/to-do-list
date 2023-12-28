@@ -24,11 +24,6 @@ body {
     grid-column: 2 / 3;
 }
 
-.task-form-container {
-    position: absolute;
-    top: 10px;
-}
-
 .create-task-button {
     height: 40px;
     width: 100px;

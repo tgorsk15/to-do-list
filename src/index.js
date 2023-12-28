@@ -21,7 +21,9 @@ import { linkForm } from './userform';
 
 // taskModification.js: handles the logic to display changes
 // on broswer when tasks are being built or are deleted
-
+export const contentContainer = document.querySelector('.content-container');
+export const projectsContainer = document.querySelector('.projects-container');
+export const taskBreakContainer = document.querySelector('.task-breakout-container');
 
 linkForm();
 
