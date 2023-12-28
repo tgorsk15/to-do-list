@@ -1,0 +1,11 @@
+
+
+/* styling for ProjectBar */
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    grid-row: 2;
+    grid-column: 1 / 2;
+}

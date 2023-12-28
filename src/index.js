@@ -1,18 +1,11 @@
 import './to-do.css';
+import './projectBar.css';
 // import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
 // import { toDoStructure } from './structure';
-import { createTask } from './objectCreator';
+import { createTask, createProject } from './objectCreator';
 import { Task } from './object.js';
 import { linkForm } from './userform';
 
-
-// reference for objectCreator.js
-// goal is to keep the DOM manipulation links in this file
-const createTaskButton = document.querySelector('.create-task-button');
-
-
-// toDoStructure();
-// console.log(taskBreakContainer);
 
 // objectCreator.js: fiile that contains the logic that creates
 // new task article cards under each project
@@ -26,15 +19,19 @@ const createTaskButton = document.querySelector('.create-task-button');
 // userform.js: handles the logic of what happens when the user
 // fills out a form to create a new project or task
 
-// listModification.js: handles the logic to display changes
-// on broswer when projects/tasks are added/deleted
+// taskModification.js: handles the logic to display changes
+// on broswer when tasks are being built or are deleted
 
 
+linkForm();
 
-// createTask(createTaskButton);
+
+const createProjectButton = document.querySelector('.create-project-button');
+createProjectButton.addEventListener('click', () => {
+    createProject()
+})
 
 
 
 console.log('test');
 
-linkForm();

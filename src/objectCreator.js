@@ -17,12 +17,8 @@ export function createTask(title, descript, due, importance, checklist) {
 
     console.log(task);
 
-    console.log(title)
     createTaskArticle(task)
-
-    
     console.log(Task);
-    console.log(taskBreakContainer);
 
     return {task}
 
@@ -111,5 +107,12 @@ export const articleFactory = (function () {
     return {addToArticle};
 
 })();
+
+
+
+// function to create new Pojects
+export function createProject() {
+    console.log('project created');
+}
 
 
