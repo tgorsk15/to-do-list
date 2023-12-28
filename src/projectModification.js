@@ -3,17 +3,36 @@ import { projectsContainer } from "./index.js";
 
 // in charge of creating a new container each time a project
 // is created
-export function createProjectContainer() {
-    modifyTaskForm.toggleTaskForm();
-    const projectContainer = document.createElement('div');
-    projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
-    console.log('added project container')
+export const projectController = function () {
+    // all task titles should be added before this button
+    const addTaskButton = document.createElement('button')
 
-    const projectTitle = document.createElement('h2')
-    projectFactory.addToProjectBar(projectTitle, 'project-title', projectContainer);
-    
-    projectTitle.textContent = 'New Project';
-    projectTitle.contentEditable = "true";
+
+    function createProjectContainer() {
+        modifyTaskForm.toggleTaskForm();
+        const projectContainer = document.createElement('div');
+        projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
+        console.log('added project container')
+
+        const projectTitle = document.createElement('h2')
+        projectFactory.addToProjectBar(projectTitle, 'project-title', projectContainer);
+        
+        projectTitle.textContent = 'New Project';
+        projectTitle.contentEditable = "true";
+        
+        appendTaskButton(projectContainer);
+
+    }
+
+    function appendTaskButton(projectContainer) {
+        projectFactory.addToProjectBar(addTaskButton, 'add-task-button', projectContainer);
+        addTaskButton.textContent = '+';
+
+    }
+
+
+    return {createProjectContainer}
+
     
     
 }
