@@ -50,3 +50,16 @@ export function taskDropLogic(dropButton, dropContainer, titleTest) {
     })
 
 }
+
+
+
+export function createTaskContainer() {
+    const taskBreakContainer = document.createElement('div');
+    // create new container
+    // pass in the container as an arguement to the 
+    // createTask() addEventListener function
+    // ... this way each aticle has to get added to that 
+    // specific container
+    toggleTaskForm();
+    
+}

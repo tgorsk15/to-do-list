@@ -1,8 +1,8 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
-import { createPriorityBar, taskDropLogic } from "./taskModification.js";
-import { taskBreakContainer} from './index.js';
-import { createTaskContainer } from "./projectModification.js";
+import { createPriorityBar, taskDropLogic, createTaskContainer } from "./taskModification.js";
+import { projectsContainer, taskBreakContainer} from './index.js';
+import { createProjectContainer } from "./projectModification.js";
 
 
 export function createTask(title, descript, due, importance, checklist) {
@@ -113,7 +113,7 @@ export const articleFactory = (function () {
 
 // function to create new Pojects
 export function createProject() {
-    createTaskContainer();
+    createProjectContainer();
     console.log('project created');
 
     // add a new project container, give it a title, append it to the
