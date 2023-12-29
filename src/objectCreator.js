@@ -2,10 +2,12 @@ import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer } from "./taskModification.js";
 import { projectsContainer, taskBreakContainer} from './index.js';
-import { createProjectContainer, projectController } from "./projectModification.js";
+import { projectController } from "./projectModification.js";
+
+const projectRun = projectController();
 
 
-export function createTask(title, descript, due, importance, checklist) {
+export function createTask(title, descript, due, importance) {
     // this should take the user inputs from the <form> and fill them 
     // into the newly created "task article" on the page. 
 
@@ -14,7 +16,7 @@ export function createTask(title, descript, due, importance, checklist) {
     
     // The entire article should be appended to the page
 
-    const task = new Task(title, descript, due, importance, checklist);
+    const task = new Task(title, descript, due, importance);
 
     console.log(task);
 
@@ -27,10 +29,7 @@ export function createTask(title, descript, due, importance, checklist) {
 
 
 function createTaskArticle(task) {
-// each article will have a title and a description on the left hand
-// side. The rught side will contain importance, due date, a delete
-// button, and an arrow (bottom right) to extend task article to show
-// a checklist or more description
+
     console.log(task.name)
 
     const taskArticle = document.createElement('div');
@@ -56,6 +55,9 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(taskTitle2, 'task-title2', taskSpace1);
     taskTitle2.textContent = task.name;
     taskTitle2.contentEditable = "true";
+    // add taskTitle to projectBar
+    console.log(projectController);
+    projectRun.appendTaskTitle(taskTitle2.textContent);
 
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
@@ -113,7 +115,6 @@ export const articleFactory = (function () {
 
 // function to create new Pojects
 export function createProject() {
-    const projectRun = projectController();
     projectRun.createProjectContainer();
     console.log('project created');
 

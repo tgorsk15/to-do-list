@@ -8,13 +8,6 @@
 
 
 
-// export function deleteTask() {
-//     let deleteTaskButton = document.createElement('button');
-//     deleteTaskButton.classList.add('delete-task');
-//     deleteTaskButton.textContent = 'X';
-
-//     return deleteTaskButton
-// }
 
 
 

@@ -6,11 +6,10 @@ import { projectsContainer } from "./index.js";
 export const projectController = function () {
     // all task titles should be added before this button
     const addTaskButton = document.createElement('button')
-
+    const projectContainer = document.createElement('div');
 
     function createProjectContainer() {
-        // modifyTaskForm.toggleTaskForm();
-        const projectContainer = document.createElement('div');
+        
         projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
         console.log('added project container')
 
@@ -22,7 +21,19 @@ export const projectController = function () {
         
         appendTaskButton(projectContainer);
 
+    
+
     }
+
+     // adds taskTitle to projectBar
+     function appendTaskTitle(taskTitleContent) {
+        const taskTitleContainer = document.createElement('div');
+        projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
+        taskTitleContainer.textContent = taskTitleContent;
+        console.log('task title added');
+    }
+
+
 
     function appendTaskButton(projectContainer) {
         projectFactory.addToProjectBar(addTaskButton, 'add-task-button', projectContainer);
@@ -30,12 +41,14 @@ export const projectController = function () {
 
     }
 
+    
+
     addTaskButton.addEventListener('click', () => {
         modifyTaskForm.toggleTaskForm()
     })
 
 
-    return {createProjectContainer}
+    return {createProjectContainer, appendTaskTitle}
 
     
     
