@@ -38,7 +38,6 @@ export function createPriorityBar(priorityLevel, priorityBar, taskDropContainer)
 export function taskDropLogic(dropButton, dropContainer, titleTest) {
     dropButton.addEventListener('click', () => {
         console.log('drop down work');
-        console.log(titleTest);
 
         if (dropContainer.classList.contains('taskDrop-container')) {
             dropContainer.classList.remove('taskDrop-container');
@@ -62,4 +61,11 @@ export function createTaskContainer() {
     // specific container
     toggleTaskForm();
     
+}
+
+export function syncTaskTitle(taskTitlteContent) {
+    const taskTitleContainer = document.querySelector('.task-title-container');
+    taskTitleContainer.textContent = taskTitlteContent;
+    console.log('has been blurred')
+
 }

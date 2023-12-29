@@ -1,6 +1,6 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
-import { createPriorityBar, taskDropLogic, createTaskContainer } from "./taskModification.js";
+import { createPriorityBar, taskDropLogic, createTaskContainer, syncTaskTitle } from "./taskModification.js";
 import { projectsContainer, taskBreakContainer} from './index.js';
 import { projectController } from "./projectModification.js";
 
@@ -55,15 +55,22 @@ function createTaskArticle(task) {
     articleFactory.addToArticle(taskTitle2, 'task-title2', taskSpace1);
     taskTitle2.textContent = task.name;
     taskTitle2.contentEditable = "true";
+
+
     // add taskTitle to projectBar
     console.log(projectController);
     projectRun.appendTaskTitle(taskTitle2.textContent);
+
+    // ensure taskTitle is synced to preject bar
+    taskTitle2.addEventListener('blur', () => {
+        syncTaskTitle(taskTitle2.textContent);
+    });
 
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
     taskDescription2.textContent = task.description;
     taskDescription2.contentEditable = "true";
-
+    
 
 
     // fill taskSpace2:
