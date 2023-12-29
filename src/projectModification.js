@@ -5,7 +5,7 @@ import { projectsContainer } from "./index.js";
 // is created
 export const projectController = function () {
     // all task titles should be added before this button
-    const addTaskButton = document.createElement('button')
+    // const addTaskButton = document.createElement('button')
     const projectContainer = document.createElement('div');
 
     function createProjectContainer() {
@@ -18,24 +18,23 @@ export const projectController = function () {
         
         projectTitle.textContent = 'New Project';
         projectTitle.contentEditable = "true";
+
+        appendTaskTitle
         
         appendTaskButton(projectContainer);
 
-
-        // function appendTaskTitle(taskTitleContent) {
-        //     const taskTitleContainer = document.createElement('div');
-        //     projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
-        //     taskTitleContainer.textContent = taskTitleContent;
-        //     console.log('task title added');
-        // }
 
     }
 
      // adds taskTitle to projectBar
      function appendTaskTitle(taskTitleContent) {
         const taskTitleContainer = document.createElement('div');
+        // const addTaskButton = document.querySelector('add-task-button');
+        // console.log(addTaskButton);
+
+
         projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
-        projectContainer.insertBefore(taskTitleContainer, addTaskButton);
+        // projectContainer.prepend(taskTitleContainer);
         
         taskTitleContainer.textContent = taskTitleContent;
         console.log('task title added');
@@ -44,16 +43,15 @@ export const projectController = function () {
 
 
     function appendTaskButton(projectContainer) {
+        const addTaskButton = document.createElement('button')
         projectFactory.addToProjectBar(addTaskButton, 'add-task-button', projectContainer);
         addTaskButton.textContent = '+';
 
+        addTaskButton.addEventListener('click', () => {
+            modifyTaskForm.toggleTaskForm()
+        })
+
     }
-
-    
-
-    addTaskButton.addEventListener('click', () => {
-        modifyTaskForm.toggleTaskForm()
-    })
 
 
     return {createProjectContainer, appendTaskTitle}

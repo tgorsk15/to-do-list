@@ -80,6 +80,10 @@ body {
     margin: 3px;
 }
 
+.description2 {
+    padding: 10px 10px;
+}
+
 
 .task-space2-row1 {
     display: flex;
