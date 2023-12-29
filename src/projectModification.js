@@ -21,7 +21,13 @@ export const projectController = function () {
         
         appendTaskButton(projectContainer);
 
-    
+
+        // function appendTaskTitle(taskTitleContent) {
+        //     const taskTitleContainer = document.createElement('div');
+        //     projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
+        //     taskTitleContainer.textContent = taskTitleContent;
+        //     console.log('task title added');
+        // }
 
     }
 
@@ -29,6 +35,8 @@ export const projectController = function () {
      function appendTaskTitle(taskTitleContent) {
         const taskTitleContainer = document.createElement('div');
         projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
+        projectContainer.insertBefore(taskTitleContainer, addTaskButton);
+        
         taskTitleContainer.textContent = taskTitleContent;
         console.log('task title added');
     }
