@@ -1,4 +1,5 @@
 import { createTask } from "./objectCreator";
+import { modifyTaskForm } from "./projectModification.js";
 
 
 export function linkForm() {
@@ -19,5 +20,7 @@ export function linkForm() {
 
         createTask(taskTitle.value, taskDescription.value, dueDate.value,
         importance.value, checklist.value);
+
+        modifyTaskForm.toggleTaskForm();
     });
 }

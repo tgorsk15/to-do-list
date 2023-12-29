@@ -9,7 +9,7 @@ export const projectController = function () {
 
 
     function createProjectContainer() {
-        modifyTaskForm.toggleTaskForm();
+        // modifyTaskForm.toggleTaskForm();
         const projectContainer = document.createElement('div');
         projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
         console.log('added project container')
@@ -30,6 +30,10 @@ export const projectController = function () {
 
     }
 
+    addTaskButton.addEventListener('click', () => {
+        modifyTaskForm.toggleTaskForm()
+    })
+
 
     return {createProjectContainer}
 
@@ -41,18 +45,21 @@ export const projectController = function () {
 
 const taskFormContainer = document.querySelector('.task-form-container');
 
-const modifyTaskForm = (function () {
+export const modifyTaskForm = (function () {
     console.log('toggle ran');
 
     function toggleTaskForm() {
 
-        if (taskFormContainer.classList.contains('.active')) {
-                return
-            } else if (!taskFormContainer.classList.contains('.active')) {
-                console.log('does not have, adding now');
-                taskFormContainer.classList.remove('task-form-container');
-                taskFormContainer.classList.add('task-form-container-active');
-            };
+        if (taskFormContainer.classList.contains('task-form-container-active')) {
+            console.log('removing active');
+            taskFormContainer.classList.remove('task-form-container-active');
+            taskFormContainer.classList.add('task-form-container');
+            return
+        } else if (!taskFormContainer.classList.contains('.task-form-container-active')) {
+            console.log('does not have, adding now');
+            taskFormContainer.classList.remove('task-form-container');
+            taskFormContainer.classList.add('task-form-container-active');
+        };
     }
 
     function clearTaskForm() {

@@ -37,3 +37,8 @@ createProjectButton.addEventListener('click', () => {
 
 console.log('test');
 
+// let obj = [
+//     river: 'Test',
+//     mountain: 'Rocky'
+// ]
+
