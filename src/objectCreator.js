@@ -20,8 +20,7 @@ export function createTask(title, descript, due, importance) {
 
     console.log(task);
 
-    const taskBreakoutInstance = projectRun.createTaskBreakout()
-    console.log(taskBreakoutInstance);
+
 
     createTaskArticle(task, taskBreakoutInstance)
     console.log(Task);
@@ -123,8 +122,8 @@ export const articleFactory = (function () {
 
 // function to create new Pojects
 export function createProject() {
-    // const taskBreakContainer = document.createElement('div');
-    // console.log('new task break container created');
+    const taskBreakoutInstance = projectRun.createTaskBreakout()
+    console.log(taskBreakoutInstance);
 
     projectRun.createProjectContainer();
     console.log('project created');

@@ -40,8 +40,6 @@ export const projectController = function () {
      // adds taskTitle to projectBar
     const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer) {
         // const taskTitleContainer = document.createElement('div');
-        // const addTaskButton = document.querySelector('add-task-button');
-        // console.log(addTaskButton);
 
 
         projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
