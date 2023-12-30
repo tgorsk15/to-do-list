@@ -23,7 +23,7 @@ import { linkForm } from './userform';
 // on broswer when tasks are being built or are deleted
 export const contentContainer = document.querySelector('.content-container');
 export const projectsContainer = document.querySelector('.projects-container');
-export const taskBreakContainer = document.querySelector('.task-breakout-container');
+export const MainBreakoutContainer = document.querySelector('.main-breakout-container');
 
 linkForm();
 
@@ -37,8 +37,4 @@ createProjectButton.addEventListener('click', () => {
 
 console.log('test');
 
-// let obj = [
-//     river: 'Test',
-//     mountain: 'Rocky'
-// ]
 

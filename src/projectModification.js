@@ -1,4 +1,4 @@
-import { projectsContainer } from "./index.js";
+import { projectsContainer, MainBreakoutContainer } from "./index.js";
 
 
 // in charge of creating a new container each time a project
@@ -25,6 +25,18 @@ export const projectController = function () {
 
     }
 
+
+
+    function createTaskBreakout() {
+        const taskBreakoutInstance = document.createElement('div');
+        projectFactory.addToProjectBar(taskBreakoutInstance, 'task-break-instance', MainBreakoutContainer);
+        console.log('new task break container created');
+    
+        return taskBreakoutInstance
+    }
+
+
+
      // adds taskTitle to projectBar
     const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer) {
         // const taskTitleContainer = document.createElement('div');
@@ -37,7 +49,7 @@ export const projectController = function () {
         console.log('task title added');
 
 
-        // maybe push the addEventListener for this, to here
+        // ensure that task titles match whenever a change is made
         taskTitle2.addEventListener('blur', () => {
             console.log(taskTitle2);
             console.log(taskTitleContainer);
@@ -48,7 +60,6 @@ export const projectController = function () {
         })
 
 
-        // return {syncTaskTitle}
     };
 
 
@@ -65,7 +76,7 @@ export const projectController = function () {
     }
 
 
-    return {createProjectContainer, appendTaskTitle}
+    return {createProjectContainer, appendTaskTitle, createTaskBreakout}
 
     
     

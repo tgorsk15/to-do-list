@@ -1,7 +1,7 @@
 import { Task  } from "./object.js";
 // import { linkForm } from "./userform.js";
-import { createPriorityBar, taskDropLogic, createTaskContainer, syncTaskTitle } from "./taskModification.js";
-import { projectsContainer, taskBreakContainer} from './index.js';
+import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
+import { projectsContainer} from './index.js';
 import { projectController } from "./projectModification.js";
 
 const projectRun = projectController();
@@ -20,7 +20,10 @@ export function createTask(title, descript, due, importance) {
 
     console.log(task);
 
-    createTaskArticle(task)
+    const taskBreakoutInstance = projectRun.createTaskBreakout()
+    console.log(taskBreakoutInstance);
+
+    createTaskArticle(task, taskBreakoutInstance)
     console.log(Task);
 
     return {task}
@@ -28,7 +31,7 @@ export function createTask(title, descript, due, importance) {
 }
 
 
-function createTaskArticle(task) {
+function createTaskArticle(task, taskBreakContainer) {
 
     console.log(task.name)
 
@@ -63,12 +66,6 @@ function createTaskArticle(task) {
     projectRun.appendTaskTitle(taskTitle2, taskTitle2.textContent, taskTitleContainer);
 
 
-
-
-    // ensure taskTitle is synced to preject bar
-    // taskTitle2.addEventListener('blur', () => {
-    //     projectRun.syncTaskTitle(taskTitle2.textContent)
-    // });
 
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);
@@ -126,6 +123,9 @@ export const articleFactory = (function () {
 
 // function to create new Pojects
 export function createProject() {
+    // const taskBreakContainer = document.createElement('div');
+    // console.log('new task break container created');
+
     projectRun.createProjectContainer();
     console.log('project created');
 

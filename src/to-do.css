@@ -19,7 +19,7 @@ body {
 }
 
 
-.task-breakout-container {
+.main-breakout-container {
     grid-row: 2;
     grid-column: 2 / 3;
 }
@@ -28,6 +28,12 @@ body {
     height: 40px;
     width: 100px;
 }
+
+.task-break-instance {
+    height: 320px;
+    background-color: bisque;
+}
+
 
 .task-article {
     display: grid;
@@ -118,11 +124,6 @@ body {
     grid-column: 1;
     grid-row: 1;
 }
-
-/* .priority-button-label,
-.priority-button {
-    
-} */
 
 .priority-button {
     margin-right: 20px;
