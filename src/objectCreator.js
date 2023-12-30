@@ -58,13 +58,17 @@ function createTaskArticle(task) {
 
 
     // add taskTitle to projectBar
+    const taskTitleContainer = document.createElement('div');
     console.log(projectController);
-    projectRun.appendTaskTitle(taskTitle2.textContent);
+    projectRun.appendTaskTitle(taskTitle2, taskTitle2.textContent, taskTitleContainer);
+
+
+
 
     // ensure taskTitle is synced to preject bar
-    taskTitle2.addEventListener('blur', () => {
-        syncTaskTitle(taskTitle2.textContent);
-    });
+    // taskTitle2.addEventListener('blur', () => {
+    //     projectRun.syncTaskTitle(taskTitle2.textContent)
+    // });
 
     const taskDescription2 = document.createElement('div')
     articleFactory.addToArticle(taskDescription2, 'description2', taskSpace1);

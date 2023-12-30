@@ -19,7 +19,6 @@ export const projectController = function () {
         projectTitle.textContent = 'New Project';
         projectTitle.contentEditable = "true";
 
-        appendTaskTitle
         
         appendTaskButton(projectContainer);
 
@@ -27,18 +26,30 @@ export const projectController = function () {
     }
 
      // adds taskTitle to projectBar
-     function appendTaskTitle(taskTitleContent) {
-        const taskTitleContainer = document.createElement('div');
+    const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer) {
+        // const taskTitleContainer = document.createElement('div');
         // const addTaskButton = document.querySelector('add-task-button');
         // console.log(addTaskButton);
 
 
         projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
-        // projectContainer.prepend(taskTitleContainer);
-        
         taskTitleContainer.textContent = taskTitleContent;
         console.log('task title added');
-    }
+
+
+        // maybe push the addEventListener for this, to here
+        taskTitle2.addEventListener('blur', () => {
+            console.log(taskTitle2);
+            console.log(taskTitleContainer);
+            const newTaskTitle = taskTitle2.textContent;
+            console.log(newTaskTitle);
+            taskTitleContainer.textContent = newTaskTitle;
+            console.log('has been blurred')
+        })
+
+
+        // return {syncTaskTitle}
+    };
 
 
 

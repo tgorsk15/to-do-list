@@ -63,9 +63,9 @@ export function createTaskContainer() {
     
 }
 
-export function syncTaskTitle(taskTitlteContent) {
-    const taskTitleContainer = document.querySelector('.task-title-container');
-    taskTitleContainer.textContent = taskTitlteContent;
-    console.log('has been blurred')
+// export function syncTaskTitle(taskTitlteContent) {
+//     const taskTitleContainer = document.querySelector('.task-title-container');
+//     taskTitleContainer.textContent = taskTitlteContent;
+//     console.log('has been blurred')
 
-}
+// }

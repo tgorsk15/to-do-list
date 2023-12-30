@@ -22,5 +22,8 @@ export function linkForm() {
         importance.value, checklist.value);
 
         modifyTaskForm.toggleTaskForm();
+
+        // put in function here to make the task appear
+        // in the projectBar
     });
 }
