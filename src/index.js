@@ -25,12 +25,18 @@ export const contentContainer = document.querySelector('.content-container');
 export const projectsContainer = document.querySelector('.projects-container');
 export const MainBreakoutContainer = document.querySelector('.main-breakout-container');
 
-linkForm();
+// linkForm()
 
 
 const createProjectButton = document.querySelector('.create-project-button');
 createProjectButton.addEventListener('click', () => {
-    createProject()
+
+    const creationRun = createProject();
+    console.log('creation tirggered');
+    linkForm(creationRun);
+    
+    // createProject();
+
 })
 
 

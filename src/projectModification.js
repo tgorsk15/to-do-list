@@ -8,6 +8,9 @@ export const projectController = function () {
     // const addTaskButton = document.createElement('button')
     const projectContainer = document.createElement('div');
 
+    let taskBreakoutCounter = 0;
+    let taskBreakoutArray = [];
+
     function createProjectContainer() {
         
         projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
@@ -28,11 +31,21 @@ export const projectController = function () {
 
 
     function createTaskBreakout() {
+        
+
         const taskBreakoutInstance = document.createElement('div');
-        projectFactory.addToProjectBar(taskBreakoutInstance, 'task-break-instance', MainBreakoutContainer);
+        taskBreakoutArray.push(taskBreakoutInstance);
+        console.log(taskBreakoutArray);
+
+        projectFactory.addToProjectBar(taskBreakoutInstance, `task-break-instance${taskBreakoutCounter}`, MainBreakoutContainer);
         console.log('new task break container created');
-    
-        return taskBreakoutInstance
+        console.log(taskBreakoutInstance);
+
+        const correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
+
+        taskBreakoutCounter ++;
+
+        return correctBreakoutInstance
     }
 
 

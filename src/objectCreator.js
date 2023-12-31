@@ -1,5 +1,5 @@
 import { Task  } from "./object.js";
-// import { linkForm } from "./userform.js";
+import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
 import { projectsContainer} from './index.js';
 import { projectController } from "./projectModification.js";
@@ -7,32 +7,58 @@ import { projectController } from "./projectModification.js";
 const projectRun = projectController();
 
 
-export function createTask(title, descript, due, importance) {
-    // this should take the user inputs from the <form> and fill them 
-    // into the newly created "task article" on the page. 
+// function to create new Pojects
+export function createProject() {
 
-    // should create a NEW instance of Task to create a new object
-    // maybe outsource this to a new factory function
+    projectRun.createProjectContainer();
+    console.log('project created');
+
+    const taskBreakoutInstance = projectRun.createTaskBreakout()
+    console.log(taskBreakoutInstance);
+
+
+    function createTask(title, descript, due, importance) {
+        // this should take the user inputs from the <form> and fill them 
+        // into the newly created "task article" on the page. 
+
+        // should create a NEW instance of Task to create a new object
+        // maybe outsource this to a new factory function
+        
+        // The entire article should be appended to the page
+        
+
+        const task = new Task(title, descript, due, importance);
+
+        console.log(task);
+
+
     
-    // The entire article should be appended to the page
-
-    const task = new Task(title, descript, due, importance);
-
-    console.log(task);
 
 
+        createTaskArticle(task, taskBreakoutInstance)
+        console.log(Task);
 
-    createTaskArticle(task, taskBreakoutInstance)
-    console.log(Task);
+        return {task}
 
-    return {task}
+    };
+
+    return {createTask};
 
 }
 
 
+
+
+    // linkForm(createTask);
+    // console.log(linkForm);
+
+
+
+
+
+
 function createTaskArticle(task, taskBreakContainer) {
 
-    console.log(task.name)
 
     const taskArticle = document.createElement('div');
     articleFactory.addToArticle(taskArticle, 'task-article', taskBreakContainer);
@@ -120,15 +146,12 @@ export const articleFactory = (function () {
 
 
 
-// function to create new Pojects
-export function createProject() {
-    const taskBreakoutInstance = projectRun.createTaskBreakout()
-    console.log(taskBreakoutInstance);
+// // function to create new Pojects
+// export function createProject() {
 
-    projectRun.createProjectContainer();
-    console.log('project created');
+//     projectRun.createProjectContainer();
+//     console.log('project created');
 
-    
-}
+// }
 
 

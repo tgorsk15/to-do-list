@@ -29,9 +29,10 @@ body {
     width: 100px;
 }
 
-.task-break-instance {
+.main-breakout-container > div {
     height: 320px;
     background-color: bisque;
+    margin-bottom: 25px;
 }
 
 
