@@ -1,8 +1,8 @@
-import { createTask, createProject } from "./objectCreator";
+import { createProject } from "./objectCreator";
 import { modifyTaskForm,  } from "./projectModification.js";
 
 
-export function linkForm(creationRun) {
+export function linkForm() {
     const taskTitle = document.getElementById('task-title');
     console.log(taskTitle);
     const taskDescription = document.getElementById('description');
@@ -13,21 +13,24 @@ export function linkForm(creationRun) {
     const submitTask = document.querySelector('.submit-task');
     console.log(submitTask);
 
+    const initialRun = createProject();
+    
+
     submitTask.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(taskTitle);
-        console.log(taskTitle.value);
+        // console.log(taskTitle);
+        // console.log(taskTitle.value);
+        console.log(createProject)
+        
         console.log('add task clicked');
 
-        creationRun.createTask(taskTitle.value, taskDescription.value, dueDate.value,
+        initialRun.createTask(taskTitle.value, taskDescription.value, dueDate.value,
         importance.value, checklist.value);
 
         modifyTaskForm.toggleTaskForm();
 
-        // put in function here to make the task appear
-        // in the projectBar
 
-        // submitTask.removeEventListener;
+        submitTask.removeEventListener;
 
     });
 }

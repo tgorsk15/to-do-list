@@ -31,12 +31,14 @@ export const MainBreakoutContainer = document.querySelector('.main-breakout-cont
 const createProjectButton = document.querySelector('.create-project-button');
 createProjectButton.addEventListener('click', () => {
 
-    const creationRun = createProject();
-    console.log('creation tirggered');
-    linkForm(creationRun);
-    
+    // const creationRun = createProject();
     // createProject();
+    console.log('creation tirggered');
+    linkForm();
 
+    
+
+    createProjectButton.removeEventListener;
 })
 
 
