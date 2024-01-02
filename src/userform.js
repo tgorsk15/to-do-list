@@ -3,6 +3,8 @@ import { modifyTaskForm,  } from "./projectModification.js";
 
 
 export function linkForm() {
+    const taskForm = document.getElementById('task-form');
+
     const taskTitle = document.getElementById('task-title');
     console.log(taskTitle);
     const taskDescription = document.getElementById('description');
@@ -13,7 +15,7 @@ export function linkForm() {
     const submitTask = document.querySelector('.submit-task');
     console.log(submitTask);
 
-    const initialRun = createProject();
+    // createProject();
     
 
     submitTask.addEventListener('click', (e) => {
@@ -29,8 +31,14 @@ export function linkForm() {
 
         modifyTaskForm.toggleTaskForm();
 
+        resetForm(taskForm);
 
         submitTask.removeEventListener;
 
     });
+}
+
+function resetForm(taskForm) {
+    taskForm.reset()
+
 }

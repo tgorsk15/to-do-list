@@ -32,7 +32,7 @@ const createProjectButton = document.querySelector('.create-project-button');
 createProjectButton.addEventListener('click', () => {
 
     // const creationRun = createProject();
-    // createProject();
+    createProject();
     console.log('creation tirggered');
     linkForm();
 
