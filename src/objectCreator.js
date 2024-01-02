@@ -34,7 +34,7 @@ export function createTask(title, descript, due, importance) {
     createIsTrue = false;
 
     const breakout2Run = breakoutController()
-    console.log(breakout2Run);
+    // console.log(breakout2Run);
     const breakoutInstance = breakout2Run.createTaskBreakout(createIsTrue);
     console.log(breakoutInstance);
 

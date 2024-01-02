@@ -20,9 +20,8 @@ export function linkForm() {
 
     submitTask.addEventListener('click', (e) => {
         e.preventDefault();
-        // console.log(taskTitle);
-        // console.log(taskTitle.value);
-        console.log(createProject)
+        console.log(taskTitle);
+        console.log(taskTitle.value);
         
         console.log('add task clicked');
 

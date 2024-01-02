@@ -4,16 +4,22 @@ import { projectsContainer, MainBreakoutContainer } from "./index.js";
 // in charge of creating a new container each time a project
 // is created
 export const projectController = function () {
-    // all task titles should be added before this button
-    // const addTaskButton = document.createElement('button')
-    const projectContainer = document.createElement('div');
+
+    // const projectContainer = document.createElement('div');
+    let activeProjectContainer;
+    
     
 
     // let taskBreakoutCounter = 0;
     // let taskBreakoutArray = [];
 
     function createProjectContainer() {
-        
+
+        const projectContainer = document.createElement('div');
+        activeProjectContainer = projectContainer;
+        console.log(activeProjectContainer);
+
+
         projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
         console.log('added project container')
 
@@ -56,17 +62,17 @@ export const projectController = function () {
         // const taskTitleContainer = document.createElement('div');
 
 
-        projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', projectContainer);
+        projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', activeProjectContainer);
         taskTitleContainer.textContent = taskTitleContent;
         console.log('task title added');
 
 
         // ensure that task titles match whenever a change is made
         taskTitle2.addEventListener('blur', () => {
-            console.log(taskTitle2);
-            console.log(taskTitleContainer);
+            // console.log(taskTitle2);
+            // console.log(taskTitleContainer);
             const newTaskTitle = taskTitle2.textContent;
-            console.log(newTaskTitle);
+            // console.log(newTaskTitle);
             taskTitleContainer.textContent = newTaskTitle;
             console.log('has been blurred')
         })
@@ -83,12 +89,21 @@ export const projectController = function () {
 
         addTaskButton.addEventListener('click', () => {
             modifyTaskForm.toggleTaskForm()
+            changeActiveProject(projectContainer);
         })
 
     }
 
 
-    return {createProjectContainer, appendTaskTitle}
+
+    function changeActiveProject(projectContainer) {
+        activeProjectContainer = projectContainer;
+        console.log(activeProjectContainer);
+        return activeProjectContainer;
+    }
+
+
+    return {createProjectContainer, appendTaskTitle, changeActiveProject}
 
     
     
