@@ -7,9 +7,10 @@ export const projectController = function () {
     // all task titles should be added before this button
     // const addTaskButton = document.createElement('button')
     const projectContainer = document.createElement('div');
+    
 
-    let taskBreakoutCounter = 0;
-    let taskBreakoutArray = [];
+    // let taskBreakoutCounter = 0;
+    // let taskBreakoutArray = [];
 
     function createProjectContainer() {
         
@@ -30,23 +31,23 @@ export const projectController = function () {
 
 
 
-    function createTaskBreakout() {
+    // function createTaskBreakout() {
         
 
-        const taskBreakoutInstance = document.createElement('div');
-        taskBreakoutArray.push(taskBreakoutInstance);
-        console.log(taskBreakoutArray);
+    //     const taskBreakoutInstance = document.createElement('div');
+    //     taskBreakoutArray.push(taskBreakoutInstance);
+    //     console.log(taskBreakoutArray);
 
-        projectFactory.addToProjectBar(taskBreakoutInstance, `task-break-instance${taskBreakoutCounter}`, MainBreakoutContainer);
-        console.log('new task break container created');
-        console.log(taskBreakoutInstance);
+    //     projectFactory.addToProjectBar(taskBreakoutInstance, `task-break-instance${taskBreakoutCounter}`, MainBreakoutContainer);
+    //     console.log('new task break container created');
+    //     console.log(taskBreakoutInstance);
 
-        const correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
+    //     const correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
 
-        taskBreakoutCounter ++;
+    //     taskBreakoutCounter ++;
 
-        return correctBreakoutInstance
-    }
+    //     return correctBreakoutInstance
+    // }
 
 
 
@@ -87,7 +88,7 @@ export const projectController = function () {
     }
 
 
-    return {createProjectContainer, appendTaskTitle, createTaskBreakout}
+    return {createProjectContainer, appendTaskTitle}
 
     
     
@@ -121,6 +122,56 @@ export const modifyTaskForm = (function () {
     return {toggleTaskForm, clearTaskForm}
     
 })();
+
+
+let taskBreakoutCounter = 0;
+let taskBreakoutArray = [];
+let correctBreakoutInstance;
+
+
+export const breakoutController = function () {
+
+    function createTaskBreakout(createIsTrue) {
+
+   
+        console.log(createIsTrue);
+
+        if (createIsTrue === true) {
+
+            const taskBreakoutInstance = document.createElement('div');
+            taskBreakoutArray.push(taskBreakoutInstance);
+            console.log(taskBreakoutArray);
+
+            projectFactory.addToProjectBar(taskBreakoutInstance, `task-break-instance${taskBreakoutCounter}`, MainBreakoutContainer);
+            console.log('new task break container created');
+            console.log(taskBreakoutInstance);
+
+            correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
+
+            taskBreakoutCounter ++;
+
+            return correctBreakoutInstance
+
+        }
+
+
+        return correctBreakoutInstance
+
+    }
+
+
+
+    // function getTaskBreakout(correctBreakoutInstance) {
+
+    //     console.log(correctBreakoutInstance);
+    //     return correctBreakoutInstance
+
+    // }
+
+    return {createTaskBreakout}
+
+}
+
 
 
 
