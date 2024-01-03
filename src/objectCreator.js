@@ -2,7 +2,7 @@ import { Task  } from "./object.js";
 import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
 import { projectsContainer} from './index.js';
-import { projectController, breakoutController } from "./projectModification.js";
+import { projectController, breakoutController, correctBreakoutInstance } from "./projectModification.js";
 
 const projectRun = projectController();
 // const breakoutRun = breakoutController();
@@ -40,9 +40,10 @@ export function createTask(title, descript, due, importance) {
 
 
     // sets the correct project being added to
+    const currentBreakoutInstance = correctBreakoutInstance;
 
 
-    createTaskArticle(task, breakoutInstance)
+    createTaskArticle(task, currentBreakoutInstance);
     console.log(Task);
 
     return {task}
@@ -57,11 +58,11 @@ export function createTask(title, descript, due, importance) {
 
 
 
-function createTaskArticle(task, breakoutInstance) {
+function createTaskArticle(task, currentBreakoutInstance) {
 
 
     const taskArticle = document.createElement('div');
-    articleFactory.addToArticle(taskArticle, 'task-article', breakoutInstance);
+    articleFactory.addToArticle(taskArticle, 'task-article', currentBreakoutInstance);
 
     // create two inner div containers:
     const taskSpace1 = document.createElement('div');

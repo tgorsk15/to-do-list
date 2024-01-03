@@ -73,8 +73,8 @@ export const projectController = function () {
         addTaskButton.addEventListener('click', () => {
             modifyTaskForm.toggleTaskForm()
             changeActiveProject(projectContainer);
-            console.log(addButtonArray[addTaskButton]);
-            // emptyRun.changeActiveBreakout(addButtonArray[addTaskButton]);
+            console.log(addButtonArray.indexOf(addTaskButton));
+            emptyRun.changeActiveBreakout(addButtonArray.indexOf(addTaskButton));
         })
 
     }
@@ -127,7 +127,7 @@ export const modifyTaskForm = (function () {
 
 let taskBreakoutCounter = 0;
 let taskBreakoutArray = [];
-let correctBreakoutInstance;
+export let correctBreakoutInstance;
 
 
 export const breakoutController = function () {
@@ -162,14 +162,14 @@ export const breakoutController = function () {
 
 
 
-    // function changeActiveBreakout(activeTaskButton) {
-    //     correctBreakoutInstance = activeTaskButton;
-    //     console.log(correctBreakoutInstance);
-    //     console.log('breakout has changed');
-    // };
+    function changeActiveBreakout(activeTaskButton) {
+        correctBreakoutInstance = taskBreakoutArray[activeTaskButton];
+        console.log(correctBreakoutInstance);
+        console.log('breakout has changed');
+    };
 
 
-    return {createTaskBreakout}
+    return {createTaskBreakout, changeActiveBreakout}
 
 }
 
