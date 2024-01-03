@@ -38,6 +38,10 @@ export function createTask(title, descript, due, importance) {
     const breakoutInstance = breakout2Run.createTaskBreakout(createIsTrue);
     console.log(breakoutInstance);
 
+
+    // sets the correct project being added to
+
+
     createTaskArticle(task, breakoutInstance)
     console.log(Task);
 

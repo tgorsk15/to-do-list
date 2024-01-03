@@ -37,6 +37,7 @@ export function linkForm() {
     });
 }
 
+
 function resetForm(taskForm) {
     taskForm.reset()
 
