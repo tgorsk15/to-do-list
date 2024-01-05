@@ -10,7 +10,7 @@ export function linkForm() {
     const taskDescription = document.getElementById('description');
     const dueDate = document.getElementById('due-date');
     const importance = document.getElementById('importance');
-    const checklist = document.getElementById('checklist');
+    // const checklist = document.getElementById('checklist');
 
     const submitTask = document.querySelector('.submit-task');
     console.log(submitTask);
@@ -26,7 +26,7 @@ export function linkForm() {
         console.log('add task clicked');
 
         createTask(taskTitle.value, taskDescription.value, dueDate.value,
-        importance.value, checklist.value);
+        importance.value);
 
         modifyTaskForm.toggleTaskForm();
 

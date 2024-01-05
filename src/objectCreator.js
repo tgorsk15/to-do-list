@@ -10,15 +10,6 @@ const projectRun = projectController();
 let projectIndexArray = [];
 let createIsTrue;
 
-// // function to create new Pojects
-// export function createProject() {
-
-//     projectRun.createProjectContainer();
-//     console.log('project created');
-
-//     // const breakoutRun = breakoutController();
-//     breakoutController();
-
 
 export function createTask(title, descript, due, importance) {
     // this should take the user inputs from the <form> and fill them 
@@ -49,11 +40,6 @@ export function createTask(title, descript, due, importance) {
     return {task}
 
 };
-
-    // return {createTask};
-
-// }
-
 
 
 
@@ -160,6 +146,28 @@ export function createProject() {
     console.log(breakoutCreation);
     projectIndexArray.push(breakoutCreation);
     console.log(projectIndexArray);
+
+}
+
+
+
+export function localStorageController() {
+
+    function saveProject() {
+
+    }
+
+    function saveTasks() {
+
+    }
+
+
+    // checks page on download for saved projects,
+    // then proceeds to create projects, tasks for them
+    function checkSavedProjects() {
+
+    }
+
 
 }
 

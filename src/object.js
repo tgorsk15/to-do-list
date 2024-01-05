@@ -6,7 +6,6 @@ export class Task {
         this.description = description;
         this.dueDate = dueDate;
         this.importance = importance;
-        // this.checklist = checklist;
 
     }
 }
