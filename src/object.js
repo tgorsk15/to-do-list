@@ -8,4 +8,12 @@ export class Task {
         this.importance = importance;
 
     }
-}
+};
+
+
+
+export class Project {
+    constructor (name) {
+        this.name = name;
+    }
+};

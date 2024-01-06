@@ -1,9 +1,6 @@
 import './to-do.css';
 import './projectBar.css';
-// import { contentContainer, projectContainer, taskBreakContainer } from './structure.js';
-// import { toDoStructure } from './structure';
-import { createTask, createProject } from './objectCreator';
-import { Task } from './object.js';
+import { createProject, createTask } from './objectCreator';
 import { linkForm } from './userform';
 
 
@@ -25,15 +22,21 @@ export const contentContainer = document.querySelector('.content-container');
 export const projectsContainer = document.querySelector('.projects-container');
 export const MainBreakoutContainer = document.querySelector('.main-breakout-container');
 
-window.addEventListener('load', () => {
 
-    tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+export let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+console.log(tasks)
 
-})
+// window.addEventListener('load', () => {
+
+//     tasks.forEach(task => {
+//         createTask(task);
+//     })
+// })
 
 
 
-linkForm();
+
+linkForm(tasks);
 
 
 const createProjectButton = document.querySelector('.create-project-button');
@@ -49,6 +52,6 @@ createProjectButton.addEventListener('click', () => {
 
 
 
-console.log('test');
+
 
 

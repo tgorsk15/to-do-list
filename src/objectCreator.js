@@ -1,7 +1,7 @@
-import { Task  } from "./object.js";
+// import { Task  } from "./object.js";
 import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
-import { projectsContainer} from './index.js';
+import { projectsContainer, tasks} from './index.js';
 import { projectController, breakoutController, correctBreakoutInstance} from "./projectModification.js";
 
 
@@ -13,18 +13,7 @@ let projectIndexArray = [];
 let createIsTrue;
 
 
-export function createTask(title, descript, due, importance) {
-    // this should take the user inputs from the <form> and fill them 
-    // into the newly created "task article" on the page. 
-
-    // should create a NEW instance of Task to create a new object
-    // maybe outsource this to a new factory function
-    
-
-    const task = new Task(title, descript, due, importance);
-    console.log(task);
-
-    localStorage.setItem
+export function createTask(task) {
 
 
     createIsTrue = false;
@@ -40,9 +29,7 @@ export function createTask(title, descript, due, importance) {
 
 
     createTaskArticle(task, currentBreakoutInstance);
-    console.log(Task);
-
-    return {task}
+   
 
 };
 
