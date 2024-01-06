@@ -2,7 +2,9 @@ import { Task  } from "./object.js";
 import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
 import { projectsContainer} from './index.js';
-import { projectController, breakoutController, correctBreakoutInstance } from "./projectModification.js";
+import { projectController, breakoutController, correctBreakoutInstance} from "./projectModification.js";
+
+
 
 const projectRun = projectController();
 // const breakoutRun = breakoutController();
@@ -21,6 +23,9 @@ export function createTask(title, descript, due, importance) {
 
     const task = new Task(title, descript, due, importance);
     console.log(task);
+
+    localStorage.setItem
+
 
     createIsTrue = false;
 
@@ -151,9 +156,13 @@ export function createProject() {
 
 
 
-export function localStorageController() {
+export const localStorageController = (function () {
+
+    let projectMemory = [];
 
     function saveProject() {
+
+
 
     }
 
@@ -162,13 +171,42 @@ export function localStorageController() {
     }
 
 
-    // checks page on download for saved projects,
-    // then proceeds to create projects, tasks for them
-    function checkSavedProjects() {
+
+
+    function removeProject() {
 
     }
 
 
-}
+    function removeTask() {
+
+    }
+
+
+
+
+    // checks page on download for saved projects,
+    // then proceeds to create projects, tasks for them
+    function checkSavedTasks() {
+        
+
+        // if (localStorage.getItem('tasks')) {
+        //     tasks = JSON.parse(localStorage.getItem('tasks'));
+
+        //     tasks.forEach(task => {
+        //         // need to figure out how to bring the right 'container' in
+        //         // createTaskArticle(task, container)
+
+        //         console.log(task);
+        //     })
+                
+
+        // }
+
+    }
+
+    return {saveProject, saveTasks, removeProject, removeTask, checkSavedTasks}
+
+})();
 
 

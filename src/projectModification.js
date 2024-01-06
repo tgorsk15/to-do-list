@@ -1,5 +1,5 @@
 import { projectsContainer, MainBreakoutContainer } from "./index.js";
-
+import { localStorageController } from "./objectCreator.js";
 
 // in charge of creating a new container each time a project
 // is created
@@ -9,6 +9,9 @@ export const projectController = function () {
     let activeProjectContainer;
     
     let addButtonArray = [];
+
+    // use to store instances of project containers into localStorage
+    // export let projectMemory = [];
 
 
     function createProjectContainer() {
@@ -31,6 +34,7 @@ export const projectController = function () {
         appendTaskButton(projectContainer);
 
 
+        
     }
 
 

@@ -25,7 +25,15 @@ export const contentContainer = document.querySelector('.content-container');
 export const projectsContainer = document.querySelector('.projects-container');
 export const MainBreakoutContainer = document.querySelector('.main-breakout-container');
 
-linkForm()
+window.addEventListener('load', () => {
+
+    tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+})
+
+
+
+linkForm();
 
 
 const createProjectButton = document.querySelector('.create-project-button');
