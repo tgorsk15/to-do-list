@@ -7,7 +7,6 @@ import { projectController, breakoutController, correctBreakoutInstance} from ".
 
 
 const projectRun = projectController();
-// const breakoutRun = breakoutController();
 
 let projectIndexArray = [];
 let createIsTrue;
@@ -18,7 +17,10 @@ export function createTask(task) {
 
     createIsTrue = false;
 
-    const breakout2Run = breakoutController()
+    projectIndexArray.push(task);
+    console.log(projectIndexArray);
+
+    const breakout2Run = breakoutController();
     // console.log(breakout2Run);
     const breakoutInstance = breakout2Run.createTaskBreakout(createIsTrue);
     console.log(breakoutInstance);
@@ -126,9 +128,10 @@ export const articleFactory = (function () {
 
 
 // function to create new Pojects
-export function createProject() {
+export function createProject(project) {
+    console.log(project)
 
-    projectRun.createProjectContainer();
+    projectRun.createProjectContainer(project);
     console.log('project created');
 
     createIsTrue = true;
@@ -136,8 +139,8 @@ export function createProject() {
     const firstBreakoutRun = breakoutController();
     const breakoutCreation = firstBreakoutRun.createTaskBreakout(createIsTrue);
     console.log(breakoutCreation);
-    projectIndexArray.push(breakoutCreation);
-    console.log(projectIndexArray);
+    // projectIndexArray.push(breakoutCreation);
+    // console.log(projectIndexArray);
 
 }
 

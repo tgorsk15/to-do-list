@@ -2,6 +2,7 @@ import './to-do.css';
 import './projectBar.css';
 import { createProject, createTask } from './objectCreator';
 import { linkForm } from './userform';
+import { Project } from './object';
 
 
 // objectCreator.js: fiile that contains the logic that creates
@@ -26,12 +27,22 @@ export const MainBreakoutContainer = document.querySelector('.main-breakout-cont
 export let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 console.log(tasks)
 
-// window.addEventListener('load', () => {
+export let projects = JSON.parse(localStorage.getItem('projects')) || [];
 
-//     tasks.forEach(task => {
-//         createTask(task);
-//     })
-// })
+window.addEventListener('load', () => {
+
+    projects.forEach(project => {
+        createProject(project);
+    })
+
+
+    tasks.forEach(task => {
+        createTask(task);
+    })
+
+
+
+});
 
 
 
@@ -42,8 +53,12 @@ linkForm(tasks);
 const createProjectButton = document.querySelector('.create-project-button');
 createProjectButton.addEventListener('click', () => {
 
-    // const creationRun = createProject();
-    createProject();
+    const project = new Project('New Project');
+    projects.push(project);
+    console.log(projects);
+    localStorage.setItem('projects', JSON.stringify(projects));
+
+    createProject(project);
     console.log('creation tirggered');
     
 

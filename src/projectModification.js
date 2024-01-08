@@ -1,6 +1,10 @@
 import { projectsContainer, MainBreakoutContainer } from "./index.js";
 import { localStorageController } from "./objectCreator.js";
 
+
+export let addButtonArray = [];
+
+
 // in charge of creating a new container each time a project
 // is created
 export const projectController = function () {
@@ -8,13 +12,13 @@ export const projectController = function () {
     // const projectContainer = document.createElement('div');
     let activeProjectContainer;
     
-    let addButtonArray = [];
+    
 
     // use to store instances of project containers into localStorage
     // export let projectMemory = [];
 
 
-    function createProjectContainer() {
+    function createProjectContainer(project) {
 
         const projectContainer = document.createElement('div');
         activeProjectContainer = projectContainer;
@@ -27,7 +31,7 @@ export const projectController = function () {
         const projectTitle = document.createElement('h2')
         projectFactory.addToProjectBar(projectTitle, 'project-title', projectContainer);
         
-        projectTitle.textContent = 'New Project';
+        projectTitle.textContent = project.name;
         projectTitle.contentEditable = "true";
 
         

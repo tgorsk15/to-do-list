@@ -1,7 +1,8 @@
 import { createProject, createTask } from "./objectCreator";
-import { modifyTaskForm,  } from "./projectModification.js";
+import { modifyTaskForm, addButtonArray } from "./projectModification.js";
 import { Task  } from "./object.js";
 
+console.log(addButtonArray);
 
 export function linkForm(tasks) {
     const taskForm = document.getElementById('task-form');
