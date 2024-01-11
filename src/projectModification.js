@@ -3,6 +3,10 @@ import { localStorageController } from "./objectCreator.js";
 
 
 export let addButtonArray = [];
+export let assignedTask;
+
+export let activeProjectContainer;
+
 
 
 // in charge of creating a new container each time a project
@@ -10,7 +14,7 @@ export let addButtonArray = [];
 export const projectController = function () {
 
     // const projectContainer = document.createElement('div');
-    let activeProjectContainer;
+
     
     
 
@@ -44,7 +48,7 @@ export const projectController = function () {
 
 
 
-     // adds taskTitle to projectBar
+    // adds taskTitle to projectBar
     const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer) {
 
 
@@ -78,11 +82,18 @@ export const projectController = function () {
 
         const emptyRun = breakoutController();
 
+
         addTaskButton.addEventListener('click', () => {
             modifyTaskForm.toggleTaskForm()
             changeActiveProject(projectContainer);
+
+
+
             console.log(addButtonArray.indexOf(addTaskButton));
             emptyRun.changeActiveBreakout(addButtonArray.indexOf(addTaskButton));
+
+            assignedTask = addButtonArray.indexOf(addTaskButton)
+            console.log(assignedTask);
         })
 
     }
@@ -135,7 +146,9 @@ export const modifyTaskForm = (function () {
 
 let taskBreakoutCounter = 0;
 let taskBreakoutArray = [];
+
 export let correctBreakoutInstance;
+// export let assignedProjectHolder;
 
 
 export const breakoutController = function () {
@@ -145,7 +158,7 @@ export const breakoutController = function () {
    
         console.log(createIsTrue);
 
-        if (createIsTrue === true) {
+        if (createIsTrue === true ) {
 
             const taskBreakoutInstance = document.createElement('div');
             taskBreakoutArray.push(taskBreakoutInstance);
@@ -172,8 +185,12 @@ export const breakoutController = function () {
 
     function changeActiveBreakout(activeTaskButton) {
         correctBreakoutInstance = taskBreakoutArray[activeTaskButton];
+        // assignedProjectHolder = taskBreakoutArray[activeTaskButton];
+
         console.log(correctBreakoutInstance);
         console.log('breakout has changed');
+
+        return {correctBreakoutInstance}
     };
 
 
@@ -195,3 +212,4 @@ const projectFactory = (function () {
     return {addToProjectBar};
 
 })();
+

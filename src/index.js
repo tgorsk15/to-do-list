@@ -3,6 +3,7 @@ import './projectBar.css';
 import { createProject, createTask } from './objectCreator';
 import { linkForm } from './userform';
 import { Project } from './object';
+import { correctBreakoutInstance, breakoutController } from './projectModification';
 
 
 // objectCreator.js: fiile that contains the logic that creates
@@ -29,18 +30,26 @@ console.log(tasks)
 
 export let projects = JSON.parse(localStorage.getItem('projects')) || [];
 
+export let pageLoad = true;
+
 window.addEventListener('load', () => {
+    const initialRun = breakoutController();
+    // let pageLoad = true;
 
     projects.forEach(project => {
         createProject(project);
     })
 
 
+
+    console.log(correctBreakoutInstance);
+    console.log(tasks);
+
     tasks.forEach(task => {
         createTask(task);
     })
 
-
+    pageLoad = false;
 
 });
 

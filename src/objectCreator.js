@@ -1,24 +1,27 @@
 // import { Task  } from "./object.js";
 import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
-import { projectsContainer, tasks} from './index.js';
+import { projectsContainer, tasks, pageLoad} from './index.js';
 import { projectController, breakoutController, correctBreakoutInstance} from "./projectModification.js";
 
 
 
 const projectRun = projectController();
-
-let projectIndexArray = [];
+console.log('projectRun yes')
+// let projectIndexArray = [];
 let createIsTrue;
 
 
 export function createTask(task) {
-
+    console.log(pageLoad);
 
     createIsTrue = false;
 
-    projectIndexArray.push(task);
-    console.log(projectIndexArray);
+    console.log(task.assignedProject)
+    console.log(task);
+
+    // projectIndexArray.push(task);
+    // console.log(projectIndexArray);
 
     const breakout2Run = breakoutController();
     // console.log(breakout2Run);
@@ -27,7 +30,15 @@ export function createTask(task) {
 
 
     // sets the correct project being added to
-    const currentBreakoutInstance = correctBreakoutInstance;
+    let currentBreakoutInstance = correctBreakoutInstance;
+    console.log(currentBreakoutInstance);
+    
+
+    if (pageLoad === true) {
+        currentBreakoutInstance = task.assignedProject
+        console.log(currentBreakoutInstance);
+    }
+
 
 
     createTaskArticle(task, currentBreakoutInstance);
@@ -68,7 +79,7 @@ function createTaskArticle(task, currentBreakoutInstance) {
 
     // add taskTitle to projectBar
     const taskTitleContainer = document.createElement('div');
-    console.log(projectController);
+    // console.log(projectController);
     projectRun.appendTaskTitle(taskTitle2, taskTitle2.textContent, taskTitleContainer);
 
 
