@@ -33,14 +33,12 @@ export let projects = JSON.parse(localStorage.getItem('projects')) || [];
 export let pageLoad = true;
 
 window.addEventListener('load', () => {
-    const initialRun = breakoutController();
+    // const initialRun = breakoutController();
     // let pageLoad = true;
 
     projects.forEach(project => {
         createProject(project);
     })
-
-
 
     console.log(correctBreakoutInstance);
     console.log(tasks);
