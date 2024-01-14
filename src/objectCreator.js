@@ -120,7 +120,10 @@ function createTaskArticle(task, currentBreakoutInstance, pageLoad) {
         projectRun.removeTaskTitle(taskTitleContainer);
 
         console.log(tasks);
-        // const taskIndex = tasks.indexOf(task)
+        const taskIndex = tasks.indexOf(task);
+        tasks.splice(taskIndex, 1)
+        console.log(tasks)
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     })
 
 
@@ -139,6 +142,12 @@ function createTaskArticle(task, currentBreakoutInstance, pageLoad) {
         completeTaskRun.removeTask(taskArticle, currentBreakoutInstance);
 
         projectRun.removeTaskTitle(taskTitleContainer);
+
+        console.log(tasks);
+        const taskIndex = tasks.indexOf(task);
+        tasks.splice(taskIndex, 1)
+        console.log(tasks)
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     })
 
 
