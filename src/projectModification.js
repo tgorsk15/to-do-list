@@ -76,6 +76,13 @@ export const projectController = function () {
     };
 
 
+    const removeTaskTitle = function (taskTitleContainer) {
+        console.log('removed');
+        taskTitleContainer.remove();
+
+    }
+
+
 
     function appendTaskButton(projectContainer) {
 
@@ -113,7 +120,8 @@ export const projectController = function () {
     }
 
 
-    return {createProjectContainer, appendTaskTitle, changeActiveProject}
+    return {createProjectContainer, appendTaskTitle, 
+        changeActiveProject, removeTaskTitle}
 
     
     

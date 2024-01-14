@@ -51,3 +51,16 @@ export function taskDropLogic(dropButton, dropContainer, titleTest) {
 }
 
 
+
+
+export const taskModifier = function () {
+
+    function removeTask(taskArticle, breakoutContainer) {
+
+        breakoutContainer.removeChild(taskArticle)
+
+    }
+
+    return {removeTask}
+
+}

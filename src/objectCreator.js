@@ -1,14 +1,13 @@
 // import { Task  } from "./object.js";
 import { linkForm } from "./userform.js";
-import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
+import { createPriorityBar, taskDropLogic, taskModifier} from "./taskModification.js";
 import { projectsContainer, tasks, pageLoad} from './index.js';
 import { projectController, breakoutController, correctBreakoutInstance, correctBreakoutArray} from "./projectModification.js";
 
 
-
 const projectRun = projectController();
 
-let projectIndexArray = [];
+// let projectIndexArray = [];
 let createIsTrue;
 
 
@@ -20,15 +19,12 @@ export function createTask(task) {
     console.log(task.assignedProject)
     console.log(task);
 
-    // projectIndexArray.push(task);
-    // console.log(projectIndexArray);
 
     const breakout2Run = breakoutController();
     
     const breakoutInstance = breakout2Run.createTaskBreakout(createIsTrue);
     console.log(breakoutInstance);
 
-    projectIndexArray.push(correctBreakoutInstance);
 
 
     // sets the correct project being added to
@@ -117,6 +113,16 @@ function createTaskArticle(task, currentBreakoutInstance, pageLoad) {
     articleFactory.addToArticle(deleteTaskButton, 'delete-task', taskSpace2First);
     deleteTaskButton.textContent = 'X';
 
+    deleteTaskButton.addEventListener('click', () => {
+        const deleteTaskRun = taskModifier()
+        deleteTaskRun.removeTask(taskArticle, currentBreakoutInstance);
+
+        projectRun.removeTaskTitle(taskTitleContainer);
+
+        console.log(tasks);
+        // const taskIndex = tasks.indexOf(task)
+    })
+
 
 
     // fill hidden dropdown
@@ -127,6 +133,14 @@ function createTaskArticle(task, currentBreakoutInstance, pageLoad) {
     const completeTaskButton = document.createElement('button');
     articleFactory.addToArticle(completeTaskButton,'complete-task-button', taskDropContainer);
     completeTaskButton.textContent = 'Complete';
+
+    completeTaskButton.addEventListener('click', () => {
+        const completeTaskRun = taskModifier()
+        completeTaskRun.removeTask(taskArticle, currentBreakoutInstance);
+
+        projectRun.removeTaskTitle(taskTitleContainer);
+    })
+
 
     // drop down button and function
     const dropDownTask = document.createElement('button');
@@ -163,64 +177,11 @@ export function createProject(project) {
     const firstBreakoutRun = breakoutController();
     const breakoutCreation = firstBreakoutRun.createTaskBreakout(createIsTrue);
     console.log(breakoutCreation);
-    // projectIndexArray.push(breakoutCreation);
-    // console.log(projectIndexArray);
 
 }
 
 
 
-export const localStorageController = (function () {
 
-    let projectMemory = [];
-
-    function saveProject() {
-
-
-
-    }
-
-    function saveTasks() {
-
-    }
-
-
-
-
-    function removeProject() {
-
-    }
-
-
-    function removeTask() {
-
-    }
-
-
-
-
-    // checks page on download for saved projects,
-    // then proceeds to create projects, tasks for them
-    function checkSavedTasks() {
-        
-
-        // if (localStorage.getItem('tasks')) {
-        //     tasks = JSON.parse(localStorage.getItem('tasks'));
-
-        //     tasks.forEach(task => {
-        //         // need to figure out how to bring the right 'container' in
-        //         // createTaskArticle(task, container)
-
-        //         console.log(task);
-        //     })
-                
-
-        // }
-
-    }
-
-    return {saveProject, saveTasks, removeProject, removeTask, checkSavedTasks}
-
-})();
 
 
