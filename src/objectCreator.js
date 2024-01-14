@@ -53,7 +53,7 @@ export function createTask(task) {
     } 
 
 
-    createTaskArticle(task, currentBreakoutInstance);
+    createTaskArticle(task, currentBreakoutInstance, pageLoad);
    
 
 };
@@ -61,7 +61,7 @@ export function createTask(task) {
 
 
 
-function createTaskArticle(task, currentBreakoutInstance) {
+function createTaskArticle(task, currentBreakoutInstance, pageLoad) {
 
 
     const taskArticle = document.createElement('div');
@@ -92,7 +92,8 @@ function createTaskArticle(task, currentBreakoutInstance) {
     // add taskTitle to projectBar
     const taskTitleContainer = document.createElement('div');
     // console.log(projectController);
-    projectRun.appendTaskTitle(taskTitle2, taskTitle2.textContent, taskTitleContainer);
+    projectRun.appendTaskTitle(taskTitle2, taskTitle2.textContent, 
+        taskTitleContainer, pageLoad, task.assignedProject);
 
 
 

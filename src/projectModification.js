@@ -7,15 +7,11 @@ export let assignedTask;
 
 export let activeProjectContainer;
 
-
+let projectContainers = [];
 
 // in charge of creating a new container each time a project
 // is created
 export const projectController = function () {
-
-    // const projectContainer = document.createElement('div');
-
-    
     
 
     // use to store instances of project containers into localStorage
@@ -25,6 +21,7 @@ export const projectController = function () {
     function createProjectContainer(project) {
 
         const projectContainer = document.createElement('div');
+        projectContainers.push(projectContainer);
         activeProjectContainer = projectContainer;
         console.log(activeProjectContainer);
 
@@ -49,13 +46,22 @@ export const projectController = function () {
 
 
     // adds taskTitle to projectBar
-    const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer) {
+    const appendTaskTitle = function (taskTitle2, taskTitleContent, taskTitleContainer, pageLoad, assignedProject) {
 
+        if (pageLoad === true) {
+            projectContainers.forEach(sideBar => {
+                if (projectContainers.indexOf(sideBar) === assignedProject) {
+                    projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', sideBar);
+                    taskTitleContainer.textContent = taskTitleContent;
+                };
+            });
+        } else {
 
-        projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', activeProjectContainer);
-        taskTitleContainer.textContent = taskTitleContent;
-        console.log('task title added');
+            projectFactory.addToProjectBar(taskTitleContainer, 'task-title-container', activeProjectContainer);
+            taskTitleContainer.textContent = taskTitleContent;
+            console.log('task title added');
 
+        };
 
         // ensure that task titles match whenever a change is made
         taskTitle2.addEventListener('blur', () => {
@@ -64,7 +70,7 @@ export const projectController = function () {
             
             taskTitleContainer.textContent = newTaskTitle;
             console.log('has been blurred')
-        })
+        });
 
 
     };
@@ -144,13 +150,12 @@ export const modifyTaskForm = (function () {
 })();
 
 
+
 let taskBreakoutCounter = 0;
 let taskBreakoutArray = [];
 
 export let correctBreakoutArray = [];
-
 export let correctBreakoutInstance;
-// export let assignedProjectHolder;
 
 
 export const breakoutController = function () {

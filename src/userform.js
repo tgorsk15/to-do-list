@@ -17,21 +17,14 @@ export function linkForm(tasks) {
 
     const submitTask = document.querySelector('.submit-task');
     console.log(submitTask);
-
-    console.log(correctBreakoutInstance);
-
-    let breakoutAssignmentList = [];
     
 
     submitTask.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('add task clicked');
 
-        // console.log(correctBreakoutInstance);
         console.log(assignedTask);
 
-        // use this to create an associated number that will be used to match
-        breakoutAssignmentList.push(correctBreakoutInstance);
         
 
         const task = new Task(taskTitle.value, taskDescription.value, dueDate.value,
