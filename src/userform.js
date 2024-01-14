@@ -1,5 +1,5 @@
 import { createProject, createTask } from "./objectCreator";
-import { modifyTaskForm, addButtonArray, correctBreakoutInstance} from "./projectModification.js";
+import { modifyTaskForm, assignedTask, correctBreakoutInstance} from "./projectModification.js";
 import { Task  } from "./object.js";
 
 
@@ -19,20 +19,23 @@ export function linkForm(tasks) {
     console.log(submitTask);
 
     console.log(correctBreakoutInstance);
+
+    let breakoutAssignmentList = [];
     
 
     submitTask.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('add task clicked');
 
+        // console.log(correctBreakoutInstance);
+        console.log(assignedTask);
 
-
-        console.log(correctBreakoutInstance);
-        // console.log(assignedProjectHolder);
-        // const correctBreakoutInstance2 = correctBreakoutInstance;
+        // use this to create an associated number that will be used to match
+        breakoutAssignmentList.push(correctBreakoutInstance);
+        
 
         const task = new Task(taskTitle.value, taskDescription.value, dueDate.value,
-        importance.value, correctBreakoutInstance);
+        importance.value, assignedTask);
         console.log(task);
         console.log(Task);
 

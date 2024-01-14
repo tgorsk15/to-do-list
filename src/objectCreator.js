@@ -2,13 +2,13 @@
 import { linkForm } from "./userform.js";
 import { createPriorityBar, taskDropLogic, createTaskContainer} from "./taskModification.js";
 import { projectsContainer, tasks, pageLoad} from './index.js';
-import { projectController, breakoutController, correctBreakoutInstance} from "./projectModification.js";
+import { projectController, breakoutController, correctBreakoutInstance, correctBreakoutArray} from "./projectModification.js";
 
 
 
 const projectRun = projectController();
-console.log('projectRun yes')
-// let projectIndexArray = [];
+
+let projectIndexArray = [];
 let createIsTrue;
 
 
@@ -24,21 +24,33 @@ export function createTask(task) {
     // console.log(projectIndexArray);
 
     const breakout2Run = breakoutController();
-    // console.log(breakout2Run);
+    
     const breakoutInstance = breakout2Run.createTaskBreakout(createIsTrue);
     console.log(breakoutInstance);
+
+    projectIndexArray.push(correctBreakoutInstance);
 
 
     // sets the correct project being added to
     let currentBreakoutInstance = correctBreakoutInstance;
+    
     console.log(currentBreakoutInstance);
     
 
+    // in this block, every container in projectIndexArray should be iterated through
+    // to check if it matches the assigned container number to the specific task
     if (pageLoad === true) {
-        currentBreakoutInstance = task.assignedProject
-        console.log(currentBreakoutInstance);
-    }
+        correctBreakoutArray.forEach(container => {
+            if (correctBreakoutArray.indexOf(container) === task.assignedProject){
+                currentBreakoutInstance = container;
+                console.log(currentBreakoutInstance)
 
+                return currentBreakoutInstance
+            }
+        })
+
+        
+    } 
 
 
     createTaskArticle(task, currentBreakoutInstance);

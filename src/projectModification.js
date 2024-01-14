@@ -85,8 +85,8 @@ export const projectController = function () {
 
         addTaskButton.addEventListener('click', () => {
             modifyTaskForm.toggleTaskForm()
-            changeActiveProject(projectContainer);
 
+            changeActiveProject(projectContainer);
 
 
             console.log(addButtonArray.indexOf(addTaskButton));
@@ -147,6 +147,8 @@ export const modifyTaskForm = (function () {
 let taskBreakoutCounter = 0;
 let taskBreakoutArray = [];
 
+export let correctBreakoutArray = [];
+
 export let correctBreakoutInstance;
 // export let assignedProjectHolder;
 
@@ -169,6 +171,7 @@ export const breakoutController = function () {
             console.log(taskBreakoutInstance);
 
             correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
+            correctBreakoutArray.push(correctBreakoutInstance);
 
             taskBreakoutCounter ++;
 
