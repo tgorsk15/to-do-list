@@ -12,10 +12,6 @@ let projectContainers = [];
 // in charge of creating a new container each time a project
 // is created
 export const projectController = function () {
-    
-
-    // use to store instances of project containers into localStorage
-    // export let projectMemory = [];
 
 
     function createProjectContainer(project) {
@@ -38,6 +34,21 @@ export const projectController = function () {
         
         appendTaskButton(projectContainer);
 
+
+        projectContainer.addEventListener('click', () => {
+            console.log('yas bitch');
+            // find matching index in between appendTask buttons and 
+            // project containers and then pass that matching
+            // number into changeActiveBreakout ... here the display
+            // will be set to active
+            addButtonArray.forEach(button => {
+                if (addButtonArray.indexOf(button) === projectContainers.indexOf(projectContainer)) {
+                    console.log('this is it')
+                    console.log(button);
+                };
+            });
+            
+        });
 
         
     }
@@ -102,7 +113,6 @@ export const projectController = function () {
             changeActiveProject(projectContainer);
 
 
-            console.log(addButtonArray.indexOf(addTaskButton));
             emptyRun.changeActiveBreakout(addButtonArray.indexOf(addTaskButton));
 
             assignedTask = addButtonArray.indexOf(addTaskButton)
