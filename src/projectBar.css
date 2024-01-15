@@ -15,12 +15,43 @@
 }
 
 .task-form-container-active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
-    /* min-height: 110px;
-    width: max-content; */
-    top: 10px;
+    min-height: 430px;
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 25px;
 }
+
+#task-title, #description, #due-date,
+#importance {
+    margin-bottom: 20px;
+    min-width: 295px;
+    font-size: 19px;
+}
+
+#task-form > label {
+    display: block;
+    min-width: 295px;
+    font-size: 20px;
+}
+
+.submit-task {
+    /* align-content: center; */
+    margin-left: 82px;
+    margin-top: 20px;
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+}
+
+
 
 .project-cont {
     display: flex;
