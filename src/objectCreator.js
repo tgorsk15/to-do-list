@@ -1,7 +1,6 @@
-// import { Task  } from "./object.js";
-import { linkForm } from "./userform.js";
+
 import { createPriorityBar, taskDropLogic, taskModifier} from "./taskModification.js";
-import { projectsContainer, tasks, pageLoad} from './index.js';
+import { tasks, pageLoad} from './index.js';
 import { projectController, breakoutController, correctBreakoutInstance, correctBreakoutArray} from "./projectModification.js";
 
 

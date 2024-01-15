@@ -19,21 +19,24 @@
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    min-height: 430px;
-    width: 300px;
+    min-height: 450px;
+    width: 320px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 30px;
     border: 2px solid black;
     border-radius: 25px;
+    background-color: #79c2d0;
+    z-index: 1000;
 }
 
 #task-title, #description, #due-date,
 #importance {
     margin-bottom: 20px;
     min-width: 295px;
-    font-size: 19px;
+    font-size: 17px;
+    padding: 10px;
 }
 
 #task-form > label {
@@ -44,7 +47,7 @@
 
 .submit-task {
     /* align-content: center; */
-    margin-left: 82px;
+    margin-left: 100px;
     margin-top: 20px;
     width: 100px;
     height: 35px;
