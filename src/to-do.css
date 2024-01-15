@@ -30,6 +30,7 @@ body {
 }
 
 .main-breakout-container > div {
+    display: none;
     height: 320px;
     background-color: bisque;
     margin-bottom: 25px;

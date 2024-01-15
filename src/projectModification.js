@@ -45,6 +45,10 @@ export const projectController = function () {
                 if (addButtonArray.indexOf(button) === projectContainers.indexOf(projectContainer)) {
                     console.log('this is it')
                     console.log(button);
+                    const breakoutDisplayRun = breakoutController()
+                    breakoutDisplayRun.changeActiveBreakout(addButtonArray.indexOf(button))
+                    console.log(correctBreakoutInstance);
+                    changeProjectDisplay(correctBreakoutInstance);
                 };
             });
             
@@ -222,6 +226,14 @@ export const breakoutController = function () {
 
     return {createTaskBreakout, changeActiveBreakout}
 
+}
+
+const changeProjectDisplay = function (chosenBreakout) {
+    taskBreakoutArray.forEach(container => {
+        container.style.display = "none"
+    })
+
+    chosenBreakout.style.display = "block"
 }
 
 
