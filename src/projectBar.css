@@ -3,13 +3,13 @@
 /* styling for ProjectBar */
 
 .projects-container {
-    background-color: rgb(202, 201, 201);
+    /* background-color: rgb(202, 201, 201); */
+    background-color: #53a8b6;
     display: flex;
     flex-direction: column;
     align-items: start;
     grid-row: 2;
     grid-column: 1 / 2;
-    border-right: 2px solid #726A95;
     min-height: 2000px;
 }
 
@@ -93,7 +93,8 @@
     overflow: hidden;
     /* white-space: nowrap;
     text-overflow: ellipsis; */
-    color: #56345c;
+    /* color: #56345c; */
+    /* color: white; */
     margin-bottom: 10px;
     margin-left: 13px;
 }
@@ -111,7 +112,7 @@
 }
 
 .task-title-container {
-    color: #351F39;
+    /* color: #351F39; */
     margin-bottom: 8px;
     margin-left: 35px;
 }
