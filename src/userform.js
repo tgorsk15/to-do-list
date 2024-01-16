@@ -1,6 +1,7 @@
 import { createProject, createTask } from "./objectCreator";
 import { modifyTaskForm, assignedTask, correctBreakoutInstance} from "./projectModification.js";
 import { Task  } from "./object.js";
+import { MainBreakoutContainer, projectsContainer } from "./index.js";
 
 
 // console.log(addButtonArray);
@@ -37,9 +38,11 @@ export function linkForm(tasks) {
         console.log(tasks);
         localStorage.setItem('tasks', JSON.stringify(tasks));
 
+        // frees up background
+        MainBreakoutContainer.style.pointerEvents = "auto"
+        projectsContainer.style.pointerEvents = "auto"
 
         modifyTaskForm.toggleTaskForm();
-
         resetForm(taskForm);
 
         createTask(task);

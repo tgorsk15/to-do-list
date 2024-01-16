@@ -44,10 +44,9 @@ export const projectController = function () {
             addButtonArray.forEach(button => {
                 if (addButtonArray.indexOf(button) === projectContainers.indexOf(projectContainer)) {
                     console.log('this is it')
-                    console.log(button);
                     const breakoutDisplayRun = breakoutController()
                     breakoutDisplayRun.changeActiveBreakout(addButtonArray.indexOf(button))
-                    console.log(correctBreakoutInstance);
+                    
                     changeProjectDisplay(correctBreakoutInstance);
                 };
             });
@@ -160,6 +159,11 @@ export const modifyTaskForm = (function () {
             console.log('does not have, adding now');
             taskFormContainer.classList.remove('task-form-container');
             taskFormContainer.classList.add('task-form-container-active');
+
+            // disabled background
+            console.log('has been disabled');
+            MainBreakoutContainer.style.pointerEvents = "none"
+            projectsContainer.style.pointerEvents = "none"
         };
     }
 
