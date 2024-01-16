@@ -8,6 +8,7 @@
     align-items: start;
     grid-row: 2;
     grid-column: 1 / 2;
+    border-right: 6px solid #726A95;
 }
 
 .task-form-container {
@@ -25,10 +26,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 30px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
     background-color: #79c2d0;
-    z-index: 1000;
+    box-shadow: -7px 9px 100px 2px black;
 }
 
 #task-title, #description, #due-date,
@@ -55,6 +56,15 @@
 }
 
 
+/* sideBar */
+.create-project-button {
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: rgba(127, 49, 49, 0);
+    border: none;
+    font-size: 21px;
+    
+}
 
 .project-cont {
     display: flex;
@@ -68,6 +78,7 @@
     /* white-space: nowrap;
     text-overflow: ellipsis; */
     margin-bottom: 10px;
+    margin-left: 13px;
 }
 
 .add-task-button {
