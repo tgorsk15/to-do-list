@@ -3,12 +3,13 @@
 /* styling for ProjectBar */
 
 .projects-container {
+    background-color: rgb(202, 201, 201);
     display: flex;
     flex-direction: column;
     align-items: start;
     grid-row: 2;
     grid-column: 1 / 2;
-    border-right: 6px solid #726A95;
+    border-right: 2px solid #726A95;
     min-height: 2000px;
 }
 
@@ -18,6 +19,7 @@
 
 .task-form-container-active {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     position: absolute;
@@ -46,6 +48,18 @@
     font-size: 20px;
 }
 
+.exit-button {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
 .submit-task {
     /* align-content: center; */
     margin-left: 100px;
@@ -61,6 +75,8 @@
     margin-top: 15px;
     margin-left: 10px;
     background-color: rgba(127, 49, 49, 0);
+    color: #135589;
+    font-weight: bold;
     border: none;
     font-size: 21px;
     
@@ -77,7 +93,7 @@
     overflow: hidden;
     /* white-space: nowrap;
     text-overflow: ellipsis; */
-    color: #351F39;
+    color: #56345c;
     margin-bottom: 10px;
     margin-left: 13px;
 }
@@ -85,12 +101,13 @@
 .add-task-button {
     height: 25px;
     width: 25px;
-    background-color: #F4E8C1;
+    /* background-color: #32485c; */
+    background-color: #135589;
     border: none;
-    color: black;
+    color: white;
     border-radius: 50%;
     margin-left: 35px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .task-title-container {

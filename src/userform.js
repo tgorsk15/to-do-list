@@ -17,6 +17,7 @@ export function linkForm(tasks) {
 
 
     const submitTask = document.querySelector('.submit-task');
+    const exitTask = document.querySelector('.exit-button');
     console.log(submitTask);
     
 
@@ -50,6 +51,14 @@ export function linkForm(tasks) {
         
 
     });
+
+    exitTask.addEventListener('click', () => {
+        modifyTaskForm.toggleTaskForm();
+
+        MainBreakoutContainer.style.pointerEvents = "auto"
+        projectsContainer.style.pointerEvents = "auto"
+    })
+
 }
 
 
