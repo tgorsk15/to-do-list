@@ -1,4 +1,4 @@
-import { projectsContainer, MainBreakoutContainer } from "./index.js";
+import { projectsContainer, MainBreakoutContainer, projects } from "./index.js";
 import { localStorageController } from "./objectCreator.js";
 
 
@@ -30,6 +30,10 @@ export const projectController = function () {
         
         projectTitle.textContent = project.name;
         projectTitle.contentEditable = "true";
+
+        const deleteProjectButton = document.createElement('button');
+        projectFactory.addToProjectBar(deleteProjectButton, 'delete-project-button', projectContainer);
+        deleteProjectButton.textContent = 'X';
 
         
         appendTaskButton(projectContainer);
@@ -89,6 +93,11 @@ export const projectController = function () {
 
     };
 
+    
+    function removeProject(projectContainer, projectsContainer) {
+        projectsContainer.removeChild(projectContainer)
+
+    }
 
     const removeTaskTitle = function (taskTitleContainer) {
         console.log('removed');
