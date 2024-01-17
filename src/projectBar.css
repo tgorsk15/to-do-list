@@ -11,6 +11,7 @@
     grid-row: 2;
     grid-column: 1 / 2;
     min-height: 2000px;
+    min-width: max-content;
 }
 
 .task-form-container {
@@ -32,6 +33,7 @@
     border-radius: 25px;
     background-color: #79c2d0;
     box-shadow: -7px 9px 100px 2px black;
+    
 }
 
 #task-title, #description, #due-date,
@@ -46,6 +48,8 @@
     display: block;
     min-width: 295px;
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 .exit-button {
@@ -95,7 +99,7 @@
     overflow: hidden;
     /* white-space: nowrap;
     text-overflow: ellipsis; */
-
+    font-family: 'Quicksand', sans-serif;
     margin-bottom: 10px;
     margin-left: 13px;
 }
@@ -132,6 +136,7 @@
     /* color: #351F39; */
     margin-bottom: 8px;
     margin-left: 35px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .delete-project-button {
