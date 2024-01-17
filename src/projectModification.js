@@ -61,27 +61,27 @@ export const projectController = function () {
             
         });
 
-        deleteProjectButton.addEventListener('click', () => {
-            console.log('wow it worked!!!!!');
-            console.log(addButtonArray);
-            console.log(projectContainers);
-            console.log(taskBreakoutArray);
-            console.log(correctBreakoutArray);
-            // need to delete entry in all 4 of the above arrays^
-            removeProject(projectContainer, projectsContainer);
+        // deleteProjectButton.addEventListener('click', () => {
+        //     console.log('wow it worked!!!!!');
+        //     console.log(addButtonArray);
+        //     console.log(projectContainers);
+        //     console.log(taskBreakoutArray);
+        //     console.log(correctBreakoutArray);
+        //     // need to delete entry in all 4 of the above arrays^
+        //     removeProject(projectContainer, projectsContainer);
 
-            const deleteBreakoutRun = breakoutController();
-            // deleteBreakoutRun.changeActiveBreakout(projectContainerIndex);
+        //     const deleteBreakoutRun = breakoutController();
+        //     // deleteBreakoutRun.changeActiveBreakout(projectContainerIndex);
             
-            console.log('changed by delete!')
-            deleteBreakoutRun.deleteActiveBreakout(projectContainerIndex);
+        //     console.log('changed by delete!')
+        //     deleteBreakoutRun.deleteActiveBreakout(projectContainerIndex);
 
-            //remove from storage
-            projects.splice(projectIndex, 1);
+        //     //remove from storage
+        //     projects.splice(projectIndex, 1);
             
-            localStorage.setItem('projects', JSON.stringify(projects));
-            console.log(projects);
-        });
+        //     localStorage.setItem('projects', JSON.stringify(projects));
+        //     console.log(projects);
+        // });
         
     };
 
@@ -269,52 +269,52 @@ export const breakoutController = function () {
 
 
 
-    function deleteActiveBreakout(projectContainerIndex) {
-        console.log(correctBreakoutInstance);
-        // MainBreakoutContainer.removeChild(correctBreakoutInstance);
+    // function deleteActiveBreakout(projectContainerIndex) {
+    //     console.log(correctBreakoutInstance);
+    //     // MainBreakoutContainer.removeChild(correctBreakoutInstance);
 
-        // delete memory of breakoutContainer
-        correctBreakoutArray.forEach(breakout => {
-            console.log(projectContainerIndex);
-            if (correctBreakoutArray.indexOf(breakout) === projectContainerIndex) {
-                correctBreakoutArray.splice(breakout, 1);
-                console.log(correctBreakoutArray);
-            };
-        });
+    //     // delete memory of breakoutContainer
+    //     correctBreakoutArray.forEach(breakout => {
+    //         console.log(projectContainerIndex);
+    //         if (correctBreakoutArray.indexOf(breakout) === projectContainerIndex) {
+    //             correctBreakoutArray.splice(breakout, 1);
+    //             console.log(correctBreakoutArray);
+    //         };
+    //     });
 
-        // delete memory of addButton
-        addButtonArray.forEach(button => {
-            console.log(projectContainerIndex);
-            if (addButtonArray.indexOf(button) === projectContainerIndex) {
-                addButtonArray.splice(button, 1);
-                console.log(addButtonArray);
-            };
-        });
+    //     // delete memory of addButton
+    //     addButtonArray.forEach(button => {
+    //         console.log(projectContainerIndex);
+    //         if (addButtonArray.indexOf(button) === projectContainerIndex) {
+    //             addButtonArray.splice(button, 1);
+    //             console.log(addButtonArray);
+    //         };
+    //     });
 
-        // delete memory of projectContainer
-        projectContainers.forEach(container => {
-            console.log(projectContainerIndex);
-            if (projectContainers.indexOf(container) === projectContainerIndex) {
-                projectContainers.splice(container, 1);
-                console.log(projectContainers);
-            };
-        });
+    //     // delete memory of projectContainer
+    //     projectContainers.forEach(container => {
+    //         console.log(projectContainerIndex);
+    //         if (projectContainers.indexOf(container) === projectContainerIndex) {
+    //             projectContainers.splice(container, 1);
+    //             console.log(projectContainers);
+    //         };
+    //     });
 
-        // delete memory of task breakout
-        taskBreakoutArray.forEach(breakout2 => {
-            console.log(projectContainerIndex);
-            if (taskBreakoutArray.indexOf(breakout2) === projectContainerIndex) {
-                console.log(breakout2);
-                MainBreakoutContainer.removeChild(breakout2);
-                taskBreakoutArray.splice(breakout2, 1);
-                console.log(taskBreakoutArray);
-            };
-        });
+    //     // delete memory of task breakout
+    //     taskBreakoutArray.forEach(breakout2 => {
+    //         console.log(projectContainerIndex);
+    //         if (taskBreakoutArray.indexOf(breakout2) === projectContainerIndex) {
+    //             console.log(breakout2);
+    //             MainBreakoutContainer.removeChild(breakout2);
+    //             taskBreakoutArray.splice(breakout2, 1);
+    //             console.log(taskBreakoutArray);
+    //         };
+    //     });
 
-    };
+    // };
 
 
-    return {createTaskBreakout, changeActiveBreakout, deleteActiveBreakout}
+    return {createTaskBreakout, changeActiveBreakout}
 
 }
 
