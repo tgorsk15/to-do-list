@@ -34,9 +34,10 @@ export const projectController = function () {
         projectTitle.textContent = project.name;
         projectTitle.contentEditable = "true";
 
-        const deleteProjectButton = document.createElement('button');
-        projectFactory.addToProjectBar(deleteProjectButton, 'delete-project-button', projectContainer);
-        deleteProjectButton.textContent = 'X';
+        // taking away for now
+        // const deleteProjectButton = document.createElement('button');
+        // projectFactory.addToProjectBar(deleteProjectButton, 'delete-project-button', projectContainer);
+        // deleteProjectButton.textContent = 'X';
 
         
         appendTaskButton(projectContainer);
