@@ -1,5 +1,6 @@
+
 import { projectsContainer, MainBreakoutContainer, projects } from "./index.js";
-import { localStorageController } from "./objectCreator.js";
+
 
 
 export let addButtonArray = [];
@@ -15,11 +16,13 @@ export const projectController = function () {
 
 
     function createProjectContainer(project) {
+        const projectIndex = projects.indexOf(project);
 
         const projectContainer = document.createElement('div');
         projectContainers.push(projectContainer);
         activeProjectContainer = projectContainer;
-        console.log(activeProjectContainer);
+        const projectContainerIndex = projectContainers.indexOf(projectContainer);
+        console.log(projectContainerIndex);
 
 
         projectFactory.addToProjectBar(projectContainer, 'project-cont', projectsContainer);
@@ -46,7 +49,7 @@ export const projectController = function () {
             // number into changeActiveBreakout ... here the display
             // will be set to active
             addButtonArray.forEach(button => {
-                if (addButtonArray.indexOf(button) === projectContainers.indexOf(projectContainer)) {
+                if (addButtonArray.indexOf(button) === projectContainerIndex) {
                     console.log('this is it')
                     const breakoutDisplayRun = breakoutController()
                     breakoutDisplayRun.changeActiveBreakout(addButtonArray.indexOf(button))
@@ -67,10 +70,19 @@ export const projectController = function () {
             removeProject(projectContainer, projectsContainer);
 
             const deleteBreakoutRun = breakoutController();
-            deleteBreakoutRun.deleteActiveBreakout();
-        })
+            // deleteBreakoutRun.changeActiveBreakout(projectContainerIndex);
+            
+            console.log('changed by delete!')
+            deleteBreakoutRun.deleteActiveBreakout(projectContainerIndex);
+
+            //remove from storage
+            projects.splice(projectIndex, 1);
+            
+            localStorage.setItem('projects', JSON.stringify(projects));
+            console.log(projects);
+        });
         
-    }
+    };
 
 
 
@@ -155,7 +167,7 @@ export const projectController = function () {
 
 
     return {createProjectContainer, appendTaskTitle, 
-        changeActiveProject, removeTaskTitle}
+        changeActiveProject, removeProject, removeTaskTitle}
 
     
     
@@ -228,6 +240,7 @@ export const breakoutController = function () {
             console.log(taskBreakoutInstance);
 
             correctBreakoutInstance = taskBreakoutArray[taskBreakoutCounter];
+            // correctBreakoutInstance = taskBreakoutInstance;
             correctBreakoutArray.push(correctBreakoutInstance);
 
             taskBreakoutCounter ++;
@@ -244,8 +257,8 @@ export const breakoutController = function () {
 
 
     function changeActiveBreakout(activeTaskButton) {
+        console.log(activeTaskButton);
         correctBreakoutInstance = taskBreakoutArray[activeTaskButton];
-        // assignedProjectHolder = taskBreakoutArray[activeTaskButton];
 
         console.log(correctBreakoutInstance);
         console.log('breakout has changed');
@@ -255,9 +268,49 @@ export const breakoutController = function () {
 
 
 
-    function deleteActiveBreakout() {
+    function deleteActiveBreakout(projectContainerIndex) {
+        console.log(correctBreakoutInstance);
+        // MainBreakoutContainer.removeChild(correctBreakoutInstance);
 
-    }
+        // delete memory of breakoutContainer
+        correctBreakoutArray.forEach(breakout => {
+            console.log(projectContainerIndex);
+            if (correctBreakoutArray.indexOf(breakout) === projectContainerIndex) {
+                correctBreakoutArray.splice(breakout, 1);
+                console.log(correctBreakoutArray);
+            };
+        });
+
+        // delete memory of addButton
+        addButtonArray.forEach(button => {
+            console.log(projectContainerIndex);
+            if (addButtonArray.indexOf(button) === projectContainerIndex) {
+                addButtonArray.splice(button, 1);
+                console.log(addButtonArray);
+            };
+        });
+
+        // delete memory of projectContainer
+        projectContainers.forEach(container => {
+            console.log(projectContainerIndex);
+            if (projectContainers.indexOf(container) === projectContainerIndex) {
+                projectContainers.splice(container, 1);
+                console.log(projectContainers);
+            };
+        });
+
+        // delete memory of task breakout
+        taskBreakoutArray.forEach(breakout2 => {
+            console.log(projectContainerIndex);
+            if (taskBreakoutArray.indexOf(breakout2) === projectContainerIndex) {
+                console.log(breakout2);
+                MainBreakoutContainer.removeChild(breakout2);
+                taskBreakoutArray.splice(breakout2, 1);
+                console.log(taskBreakoutArray);
+            };
+        });
+
+    };
 
 
     return {createTaskBreakout, changeActiveBreakout, deleteActiveBreakout}

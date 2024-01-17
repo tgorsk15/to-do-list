@@ -1,5 +1,5 @@
 import { createProject, createTask } from "./objectCreator";
-import { modifyTaskForm, assignedTask, correctBreakoutInstance} from "./projectModification.js";
+import { modifyTaskForm, assignedTask } from "./projectModification.js";
 import { Task  } from "./object.js";
 import { MainBreakoutContainer, projectsContainer } from "./index.js";
 
