@@ -57,6 +57,18 @@ export const projectController = function () {
             
         });
 
+        deleteProjectButton.addEventListener('click', () => {
+            console.log('wow it worked!!!!!');
+            console.log(addButtonArray);
+            console.log(projectContainers);
+            console.log(taskBreakoutArray);
+            console.log(correctBreakoutArray);
+            // need to delete entry in all 4 of the above arrays^
+            removeProject(projectContainer, projectsContainer);
+
+            const deleteBreakoutRun = breakoutController();
+            deleteBreakoutRun.deleteActiveBreakout();
+        })
         
     }
 
@@ -95,7 +107,7 @@ export const projectController = function () {
 
     
     function removeProject(projectContainer, projectsContainer) {
-        projectsContainer.removeChild(projectContainer)
+        projectsContainer.removeChild(projectContainer);
 
     }
 
@@ -186,6 +198,11 @@ export const modifyTaskForm = (function () {
 
 
 
+
+
+
+
+
 let taskBreakoutCounter = 0;
 let taskBreakoutArray = [];
 
@@ -237,7 +254,13 @@ export const breakoutController = function () {
     };
 
 
-    return {createTaskBreakout, changeActiveBreakout}
+
+    function deleteActiveBreakout() {
+
+    }
+
+
+    return {createTaskBreakout, changeActiveBreakout, deleteActiveBreakout}
 
 }
 
